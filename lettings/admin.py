@@ -1,3 +1,7 @@
+"""
+register add for lettings app
+"""
+
 from django.contrib import admin
 from .models import Letting
 from .models import Address
