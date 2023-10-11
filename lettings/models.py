@@ -1,8 +1,21 @@
+"""
+here to create models for app_db
+"""
 from django.db import models
 from django.core.validators import MaxValueValidator, MinLengthValidator
 
 
 class Address(models.Model):
+    """
+    Model with:
+    number = int
+    street =str
+    city=str
+    state=str
+    zip_code=int
+    country_is_code=str
+    """
+
     number = models.PositiveIntegerField(validators=[MaxValueValidator(9999)])
     street = models.CharField(max_length=64)
     city = models.CharField(max_length=64)
@@ -17,6 +30,10 @@ class Address(models.Model):
 
 
 class Letting(models.Model):
+    """
+    title=str
+    address=1 to many relation, FK
+    """
     title = models.CharField(max_length=256)
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
 
