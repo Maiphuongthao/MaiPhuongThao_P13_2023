@@ -1,11 +1,10 @@
 """
 Test module
 """
-from django.test import TestCase
 import pytest
 from django.contrib.auth.models import User
 from pytest_django.asserts import assertTemplateUsed
-from django.urls import reverse, resolve
+from django.urls import reverse
 from .models import Profile
 
 @pytest.mark.django_db
@@ -31,7 +30,6 @@ def test_detail_profile_view(client):
         user=user,
         favorite_city="Hanoi",
     )
-    breakpoint()
     path = reverse("profile",  kwargs={'username': "test"})
 
     response = client.get(path)
@@ -39,3 +37,18 @@ def test_detail_profile_view(client):
     assert response.status_code==200
     assert expected_content in response.content.decode()
     assertTemplateUsed(response, "profile.html")
+
+
+@pytest.mark.django_db
+def test_profile_model():
+    """
+    return test profile
+    """
+    user = User.objects.create_user('test')
+    profile = Profile.objects.create(
+        user=user,
+        favorite_city="Hanoi",
+    )
+    expected = "test"
+    assert str(profile)==expected
+    assert User.objects.count() == 1
