@@ -28,6 +28,9 @@ class Address(models.Model):
     def __str__(self):
         return f"{self.number} {self.street}"
 
+    class Meta:
+        #Change the model name when plural
+        verbose_name_plural = "Addresses"
 
 class Letting(models.Model):
     """
