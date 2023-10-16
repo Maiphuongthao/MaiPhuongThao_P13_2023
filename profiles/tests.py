@@ -30,13 +30,13 @@ def test_detail_profile_view(client):
         user=user,
         favorite_city="Hanoi",
     )
-    path = reverse("profile",  kwargs={'username': "test"})
+    path = reverse("profiles:profile",  kwargs={'username': "test"})
 
     response = client.get(path)
     expected_content = "test"
     assert response.status_code==200
     assert expected_content in response.content.decode()
-    assertTemplateUsed(response, "profile.html")
+    assertTemplateUsed(response, "profiles/profile.html")
 
 
 @pytest.mark.django_db

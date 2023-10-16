@@ -37,10 +37,10 @@ def test_lettings_details(client):
         title = "New letting",
         address = address
     )
-    path = reverse('letting', kwargs={'letting_id':1})
+    path = reverse('lettings:letting', kwargs={'letting_id':1})
     response = client.get(path)
     assert response.status_code == 200
-    assertTemplateUsed(response,'letting.html')
+    assertTemplateUsed(response,'lettings/letting.html')
 
 @pytest.mark.django_db
 def test_letting_model():
