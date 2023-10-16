@@ -22,11 +22,10 @@ jobs:
             source env/bin/activate
             pytest --cov
             echo "TESTING COMMIT $CIRCLE_SHA1"
-  build_image:
 
 
 # Orchestrate our job run sequence
 workflows:
   commit:
     jobs:
-      - build_and_test
+      - testing
