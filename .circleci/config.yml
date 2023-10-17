@@ -28,24 +28,19 @@ jobs:
     docker:
       - image: cimg/python:3.8
         environment:
-          SECRET_KEY: $SECRET_KEY
-          SENTRY_DNS: $SENTRY_DNS
-          DEBUG: $DEBUG
-          DOCKER_ID: $DOCKER_ID
+          DOCKER_LOGIN: $DOCKER_LOGIN
           DOCKER_PASS: $DOCKER_PASS
     steps:
       - run:
-          name: install dependencies
+          name: active env
           command: |
-            python3 -m venv env
             source env/bin/activate
       - run:
           name: Build img and push to Dockerhub
           command: |
-            source env/bin/activate
-            docker login -u DOCKER_ID -p DOCKER_PASS
-            docker build -t DOCKER_ID/lettings
-            docker tag DOCKER_ID/lettings:latest $CIRCLE_SHA1
+            docker login -u DOCKER_LOGIN -p DOCKER_PASS
+            docker build -t DOCKER_LOGIN/lettings
+            docker tag DOCKER_LOGIN/lettings:latest $CIRCLE_SHA1
             docker push $CIRCLE_SHA1
 
 # Orchestrate our job run sequence
@@ -53,4 +48,6 @@ workflows:
   build_and_test:
     jobs:
       - testing
-      - build_image
+      - build_image:
+          requires:
+            - testing
