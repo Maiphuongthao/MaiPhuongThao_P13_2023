@@ -26,17 +26,19 @@ jobs:
             echo "TESTING COMMIT $CIRCLE_SHA1"
   build_image:
     docker:
-      - image: cimg/base:2023.06
-    environment:
-      SECRET_KEY: $SECRET_KEY
-      SENTRY_DNS: $SENTRY_DNS
-      DEBUG: $DEBUG
+      - image: circleci/python:3.8
+        environment:
+          SECRET_KEY: $SECRET_KEY
+          SENTRY_DNS: $SENTRY_DNS
+          DEBUG: $DEBUG
     steps:
+      - setup_remote_docker:
+          docker_layer_caching: false
       - run:
           name: Build img and push to Dockerhub
           command: |
-            docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 .
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+            docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 .
             docker push $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1
 
 # Orchestrate our job run sequence

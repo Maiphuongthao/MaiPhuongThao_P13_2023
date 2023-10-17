@@ -3,6 +3,7 @@ version: '3'
 services:
   web:
     build: .
+    image: maiphuongthao/oc-lettings:latest
     volumes:
       - .:/code
       # - .db.sqlite3
