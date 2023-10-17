@@ -25,6 +25,10 @@ jobs:
             pytest --cov
             echo "TESTING COMMIT $CIRCLE_SHA1"
   build_image:
+    environment:
+      SECRET_KEY: $SECRET_KEY
+      SENTRY_DNS: $SENTRY_DNS
+      DEBUG: $DEBUG
     steps:
       - run:
           name: Build img and push to Dockerhub
@@ -32,10 +36,7 @@ jobs:
             docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 .
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
             docker push $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1
-          environment:
-            SECRET_KEY: $SECRET_KEY
-            SENTRY_DNS: $SENTRY_DNS
-            DEBUG: $DEBUG
+
 # Orchestrate our job run sequence
 workflows:
   build_and_test:
