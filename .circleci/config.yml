@@ -26,7 +26,7 @@ jobs:
             echo "TESTING COMMIT $CIRCLE_SHA1"
   build_image:
     docker:
-      - image: circleci/classic:edge
+      - image: cimg/python:latest
         environment:
           SECRET_KEY: $SECRET_KEY
           SENTRY_DNS: $SENTRY_DNS
