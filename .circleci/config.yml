@@ -26,14 +26,12 @@ jobs:
             echo "TESTING COMMIT $CIRCLE_SHA1"
   build_image:
     docker:
-      - image: docker:17.05.0-ce-git
+      - image: cimg/python:3.8
         environment:
           SECRET_KEY: $SECRET_KEY
           SENTRY_DNS: $SENTRY_DNS
           DEBUG: $DEBUG
     steps:
-      - checkout
-      - setup_remote_docker
       - run:
           name: Build img and push to Dockerhub
           command: |
