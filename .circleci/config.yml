@@ -37,7 +37,7 @@ jobs:
           name: Build img and push to Dockerhub
           command: |
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-            docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 .
+            docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 --build-arg SECRET_KEY=$SECRET_KEY --build-arg SENTRY_DSN=$SENTRY_DSN --build-arg DEBUG=$DEBUG  .
             # docker tag $DOCKER_LOGIN/oc-lettings:latest :$CIRCLE_SHA1
             docker push $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1
 
@@ -47,7 +47,5 @@ workflows:
     jobs:
       - testing
       - build_image:
-          docker:
-            extra_build_args: '--build-arg SECRET_KEY=$SECRET_KEY --build-arg SENTRY_DSN=$SENTRY_DSN --build-arg DEBUG=$DEBUG'
           requires:
             - testing
