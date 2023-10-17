@@ -41,6 +41,10 @@ jobs:
             docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 .
             # docker tag $DOCKER_LOGIN/oc-lettings:latest :$CIRCLE_SHA1
             docker push $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1
+          environment:
+            SECRET_KEY: $SECRET_KEY
+            SENTRY_DNS: $SENTRY_DNS
+            DEBUG: $DEBUG
 
 # Orchestrate our job run sequence
 workflows:
