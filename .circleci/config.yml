@@ -32,10 +32,6 @@ jobs:
           DOCKER_PASS: $DOCKER_PASS
     steps:
       - run:
-          name: active env
-          command: |
-            source env/bin/activate
-      - run:
           name: Build img and push to Dockerhub
           command: |
             docker login -u DOCKER_LOGIN -p DOCKER_PASS
