@@ -10,16 +10,16 @@ load_dotenv()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-dns = os.getenv('SENTRY_DNS')
+SENTRY_DNS = os.getenv("SENTRY_DNS")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -124,9 +124,9 @@ STATICFILES_DIRS = [
 ]
 
 
-#Sentry setup
+# Sentry setup
 sentry_sdk.init(
-    dsn=dns,
+    dsn=SENTRY_DNS,
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
     traces_sample_rate=1.0,
@@ -139,19 +139,19 @@ sentry_sdk.init(
     send_default_pii=True,
     integrations=[
         DjangoIntegration(
-            transaction_style='url',
+            transaction_style="url",
             middleware_spans=True,
             signals_spans=False,
             cache_spans=False,
         ),
         LoggingIntegration(
-            level=logging.INFO,        # Capture info and above as breadcrumbs
-            event_level=logging.ERROR  # Send errors as events
+            level=logging.INFO,  # Capture info and above as breadcrumbs
+            event_level=logging.ERROR,  # Send errors as events
         ),
     ],
 )
 
-#logging
+# logging
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -162,12 +162,12 @@ LOGGING = {
             "filename": "debug.log",
         },
     },
-    #envoie les messges de niveau warning ou plus élévé
+    # envoie les messges de niveau warning ou plus élévé
     "root": {
         "handlers": ["file"],
         "level": "WARNING",
     },
-    #journalisaion nomné django envoies les messages de niveau debug ou plus
+    # journalisaion nomné django envoies les messages de niveau debug ou plus
     "loggers": {
         "django": {
             "handlers": ["file"],

@@ -8,6 +8,8 @@ jobs:
       - image: cimg/python:3.8
         environment:
           SECRET_KEY: $SECRET_KEY
+          SENTRY_DNS: $SENTRY_DNS
+          DEBUG: $DEBUG
     steps:
       - checkout
       - run:
@@ -26,6 +28,6 @@ jobs:
 
 # Orchestrate our job run sequence
 workflows:
-  commit:
+  build_and_test:
     jobs:
       - testing

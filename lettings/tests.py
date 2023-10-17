@@ -7,15 +7,17 @@ from pytest_django.asserts import assertTemplateUsed
 from django.urls import reverse
 from .models import Letting, Address
 
+
 @pytest.mark.django_db
 def test_lettings_list_view(client):
     """
     test show list of lettings
     status code 200
     """
-    response = client.get('/lettings/')
+    response = client.get("/lettings/")
     assert response.status_code == 200
     assert "Lettings" in response.content.decode()
+
 
 @pytest.mark.django_db
 def test_lettings_details(client):
@@ -33,14 +35,12 @@ def test_lettings_details(client):
         country_iso_code="USA",
     )
 
-    Letting.objects.create(
-        title = "New letting",
-        address = address
-    )
-    path = reverse('lettings:letting', kwargs={'letting_id':1})
+    Letting.objects.create(title="New letting", address=address)
+    path = reverse("lettings:letting", kwargs={"letting_id": 1})
     response = client.get(path)
     assert response.status_code == 200
-    assertTemplateUsed(response,'lettings/letting.html')
+    assertTemplateUsed(response, "lettings/letting.html")
+
 
 @pytest.mark.django_db
 def test_letting_model():
@@ -56,12 +56,9 @@ def test_letting_model():
         country_iso_code="USA",
     )
 
-    letting = Letting.objects.create(
-        title = "New letting",
-        address = address
-    )
+    letting = Letting.objects.create(title="New letting", address=address)
     expected = "New letting"
-    assert str(letting)==expected
+    assert str(letting) == expected
     assert Letting.objects.count() == 1
 
 
@@ -80,5 +77,5 @@ def test_address_model():
     )
 
     expected = "12 Nord street"
-    assert str(address)==expected
+    assert str(address) == expected
     assert Address.objects.count() == 1
