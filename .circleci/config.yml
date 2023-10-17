@@ -26,14 +26,13 @@ jobs:
             echo "TESTING COMMIT $CIRCLE_SHA1"
   build_image:
     docker:
-      - image: circleci/python:3.8
+      - image: circleci/classic:edge
         environment:
           SECRET_KEY: $SECRET_KEY
           SENTRY_DNS: $SENTRY_DNS
           DEBUG: $DEBUG
     steps:
-      - setup_remote_docker:
-          docker_layer_caching: false
+      - checkout
       - run:
           name: Build img and push to Dockerhub
           command: |
