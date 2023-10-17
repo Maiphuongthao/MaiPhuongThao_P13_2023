@@ -30,7 +30,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-          version: latest
+          version: 20.10.24
           docker_layer_caching: true
       - run:
           name: Build img and push to Dockerhub
