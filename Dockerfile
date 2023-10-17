@@ -12,4 +12,4 @@ RUN pip install -r requirements.txt
 COPY . /code/
 # Collect static files
 RUN python manage.py collectstatic --noinput
-CMD python3 manage.py runserver 0.0.0.0:8000
+CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "mysite.wsgi:application"]
