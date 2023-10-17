@@ -27,12 +27,8 @@ jobs:
   build_image:
     docker:
       - image: cimg/python:3.8
-        environment:
-          DEBUG: $DEBUG
     steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run:
           name: Build img and push to Dockerhub
           command: |
