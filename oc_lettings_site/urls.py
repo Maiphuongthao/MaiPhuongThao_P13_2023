@@ -6,7 +6,7 @@ from . import views
 urlpatterns = [
     path("", views.index, name="index"),
     path("", include("lettings.urls")),
-    path("", include('profiles.urls')),
+    path("", include("profiles.urls")),
     path("admin/", admin.site.urls),
-    path('sentry-debug', views.trigger_error)
+    path("sentry-debug", views.trigger_error),
 ]

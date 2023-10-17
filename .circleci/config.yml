@@ -1,0 +1,51 @@
+version: 2.1
+
+
+# Define the jobs we want to run for this project
+jobs:
+  testing:
+    docker:
+      - image: cimg/python:3.8
+        environment:
+          SECRET_KEY: $SECRET_KEY
+          SENTRY_DNS: $SENTRY_DNS
+          DEBUG: $DEBUG
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv env
+            source env/bin/activate
+            pip install -r requirements.txt
+      - run:
+          name: launch pytest
+          command: |
+            source env/bin/activate
+            pytest --cov
+            echo "TESTING COMMIT $CIRCLE_SHA1"
+  build_image:
+    docker:
+      - image: cimg/python:3.8
+        environment:
+          SECRET_KEY: $SECRET_KEY
+          SENTRY_DNS: $SENTRY_DNS
+          DEBUG: $DEBUG
+    steps:
+      - checkout
+      - run:
+          name: Build img and push to Dockerhub
+          command: |
+            docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+            docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 .
+            # docker tag $DOCKER_LOGIN/oc-lettings:latest :$CIRCLE_SHA1
+            docker push $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1
+
+# Orchestrate our job run sequence
+workflows:
+  build_and_test:
+    jobs:
+      - testing
+      - build_image:
+          requires:
+            - testing

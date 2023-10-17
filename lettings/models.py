@@ -29,14 +29,16 @@ class Address(models.Model):
         return f"{self.number} {self.street}"
 
     class Meta:
-        #Change the model name when plural
+        # Change the model name when plural
         verbose_name_plural = "Addresses"
+
 
 class Letting(models.Model):
     """
     title=str
     address=1 to many relation, FK
     """
+
     title = models.CharField(max_length=256)
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
 
