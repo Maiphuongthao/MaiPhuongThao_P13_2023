@@ -2,7 +2,6 @@
 Test Case for lettings views
 """
 import pytest
-from django.contrib.auth.models import User
 from pytest_django.asserts import assertTemplateUsed
 from django.urls import reverse
 from .models import Letting, Address

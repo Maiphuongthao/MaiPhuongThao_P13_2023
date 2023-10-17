@@ -24,10 +24,28 @@ jobs:
             source env/bin/activate
             pytest --cov
             echo "TESTING COMMIT $CIRCLE_SHA1"
-
+  build_image:
+    docker:
+      - image: cimg/python:3.8
+        environment:
+          SECRET_KEY: $SECRET_KEY
+          SENTRY_DNS: $SENTRY_DNS
+          DEBUG: $DEBUG
+          DOCKER_ID: $DOCKER_ID
+          DOCKER_PASS: $DOCKER_PASS
+    steps:
+      - run:
+          name: Build img and push to Dockerhub
+          command: |
+            source env/bin/activate
+            docker login -u DOCKER_ID -p DOCKER_PASS
+            docker build -t DOCKER_ID/lettings
+            docker tag DOCKER_ID/lettings:latest $CIRCLE_SHA1
+            docker push $CIRCLE_SHA1
 
 # Orchestrate our job run sequence
 workflows:
   build_and_test:
     jobs:
       - testing
+      - build_image
