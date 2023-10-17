@@ -33,7 +33,6 @@ jobs:
           DEBUG: $DEBUG
     steps:
       - checkout
-      - setup_remote_docker
       - run:
           name: Build img and push to Dockerhub
           command: |
