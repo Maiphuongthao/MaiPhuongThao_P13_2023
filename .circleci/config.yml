@@ -25,12 +25,12 @@ jobs:
             pytest --cov
             echo "TESTING COMMIT $CIRCLE_SHA1"
   build_image:
-    docker:
-      - image: cimg/python:3.8
-        environment:
-          SECRET_KEY: $SECRET_KEY
-          SENTRY_DNS: $SENTRY_DNS
-          DEBUG: $DEBUG
+    machine:
+      image: ubuntu-2204:2022.04.2
+    environment:
+      SECRET_KEY: $SECRET_KEY
+      SENTRY_DNS: $SENTRY_DNS
+      DEBUG: $DEBUG
     steps:
       - checkout
       - run:
