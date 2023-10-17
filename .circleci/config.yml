@@ -47,6 +47,7 @@ workflows:
     jobs:
       - testing
       - build_image:
-          extra_build_args: '--build-arg SECRET_KEY=$SECRET_KEY --build-arg SENTRY_DSN=$SENTRY_DSN --build-arg DEBUG=$DEBUG'
+          docker:
+            extra_build_args: '--build-arg SECRET_KEY=$SECRET_KEY --build-arg SENTRY_DSN=$SENTRY_DSN --build-arg DEBUG=$DEBUG'
           requires:
             - testing
