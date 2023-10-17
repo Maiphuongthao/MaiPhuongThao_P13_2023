@@ -32,8 +32,8 @@ jobs:
           name: Build img and push to Dockerhub
           command: |
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-            docker build -t $DOCKER_LOGIN/oc-lettings
-            docker tag DOCKER_LOGIN/oc-lettings:latest $CIRCLE_SHA1
+            docker build -t $DOCKER_LOGIN/oc-lettings :$CIRCLE_SHA1
+            docker tag $DOCKER_LOGIN/oc-lettings:latest :$CIRCLE_SHA1
             docker push $CIRCLE_SHA1
 
 # Orchestrate our job run sequence
