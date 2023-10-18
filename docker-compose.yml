@@ -13,6 +13,6 @@ services:
     env_file:
       - .env
     environment:
-      - SECRET_KEY=$(SECRET_KEY)
-      - SENTRY_DNS=$(SENTRY_DNS)
-      - DEBUG=$(DEBUG)
+      - SECRET_KEY=${SECRET_KEY}
+      - SENTRY_DNS=${SENTRY_DNS}
+      - DEBUG=${DEBUG}
