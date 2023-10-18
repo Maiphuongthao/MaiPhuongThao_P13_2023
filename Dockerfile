@@ -11,8 +11,9 @@ RUN pip install -r requirements.txt
 #copy project
 COPY . /code/
 # Collect static files
-# ENV SECRET_KEY ${SECRET_KEY}
-# ENV SENTRY_DNS ${SENTRY_DNS}
+ARG SECRET_KEY 
+ARG SENTRY_DNS 
+ARG DEBUG 
 # ENV DEBUG ${DEBUG}
 RUN python manage.py collectstatic --noinput
 CMD gunicorn oc_lettings_site.wsgi -b 0.0.0.0:8000
