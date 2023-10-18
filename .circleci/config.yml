@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  docker: circleci/docker@2.2.0
+  docker: circleci/docker@2.4.0
 
 # Define the jobs we want to run for this project
 jobs:
@@ -26,15 +26,23 @@ jobs:
             source env/bin/activate
             pytest --cov
             echo "TESTING COMMIT $CIRCLE_SHA1"
+  build_image:
+    executor: docker/docker
+    steps:
+      - setup_remote_docker
+      - checkout
+      - docker/check
+      docker/publish:
+        extra_build_args: '--build-arg SECRET_KEY=$SECRET_KEY --build-arg SENTRY_DNS=$SENTRY_DNS'
+        image: $DOCKER_LOGIN/oc-lettings
+        tag: $CIRCLE_SHA1
+
   
 
 workflows:
   build_and_test:
     jobs:
       - testing
-      - docker/publish:
-          extra_build_args: '--build-arg SECRET_KEY=$SECRET_KEY --build-arg SENTRY_DNS=$SENTRY_DNS'
-          image: $DOCKER_LOGIN/oc-lettings
-          tag: $CIRCLE_SHA1
+      - build_image
           requires:
             - testing
