@@ -10,6 +10,9 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 #copy project
 COPY . /code/
+ARG SECRET_KEY=${SECRET_KEY}
+ARG SENTRY_DNS=${SENTRY_DNS}
+ARG DEBUG=${DEBUG}
 # Collect static files
 RUN python manage.py collectstatic --noinput
 CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "mysite.wsgi:application"]
