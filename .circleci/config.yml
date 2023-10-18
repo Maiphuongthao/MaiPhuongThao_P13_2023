@@ -31,10 +31,10 @@ jobs:
   publish_docker:
     docker:
       - image: cimg/python:3.8
-      environment:
-          SECRET_KEY: $SECRET_KEY
-          SENTRY_DNS: $SENTRY_DNS
-          DEBUG: $DEBUG
+        environment:
+            SECRET_KEY: $SECRET_KEY
+            SENTRY_DNS: $SENTRY_DNS
+            DEBUG: $DEBUG
     steps:
       - checkout
       - setup_remote_docker:
