@@ -11,5 +11,5 @@ RUN pip install -r requirements.txt
 #copy project
 COPY . /code/
 # Collect static files
-RUN python manage.py collectstatic --noinput
+#RUN python manage.py collectstatic --noinput
 CMD gunicorn oc_lettings_site.wsgi -b 0.0.0.0:8000
