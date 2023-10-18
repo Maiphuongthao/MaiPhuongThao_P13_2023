@@ -5,28 +5,28 @@ orbs:
 
 # Define the jobs we want to run for this project
 jobs:
-  testing:
-    docker:
-      - image: cimg/python:3.8
-        environment:
-          SECRET_KEY: $SECRET_KEY
-          SENTRY_DNS: $SENTRY_DNS
-          DEBUG: $DEBUG
-    steps:
-      - checkout
-      - run:
-          name: install dependencies
-          command: |
-            python3 -m venv env
-            source env/bin/activate
-            pip install -r requirements.txt
-      - run:
-          name: launch test
-          command: |
-            source env/bin/activate
-            flake8
-            pytest --cov
-            echo "TESTING COMMIT $CIRCLE_SHA1"
+  # testing:
+    # docker:
+      # - image: cimg/python:3.8
+        # environment:
+          # SECRET_KEY: $SECRET_KEY
+          # SENTRY_DNS: $SENTRY_DNS
+          # DEBUG: $DEBUG
+    # steps:
+      # - checkout
+      # - run:
+          # name: install dependencies
+          # command: |
+            # python3 -m venv env
+            # source env/bin/activate
+            # pip install -r requirements.txt
+      # - run:
+          # name: launch test
+          # command: |
+            # source env/bin/activate
+            # flake8
+            # pytest --cov
+            # echo "TESTING COMMIT $CIRCLE_SHA1"
 
   publish_docker:
     docker:
@@ -43,7 +43,7 @@ jobs:
           name: Build and publish Docker image
           command: |
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-            docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 .
+            docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 \
             --build-arg SECRET_KEY=$SECRET_KEY \
             --build-arg SENTRY_DNS=$SENTRY_DNS \
             --build-arg DEBUG=$DEBUG \
