@@ -32,10 +32,10 @@ jobs:
       - setup_remote_docker
       - checkout
       - docker/check
-      docker/publish:
-        extra_build_args: '--build-arg SECRET_KEY=$SECRET_KEY --build-arg SENTRY_DNS=$SENTRY_DNS'
-        image: $DOCKER_LOGIN/oc-lettings
-        tag: $CIRCLE_SHA1
+      - docker/publish:
+          extra_build_args: '--build-arg SECRET_KEY=$SECRET_KEY --build-arg SENTRY_DNS=$SENTRY_DNS'
+          image: $DOCKER_LOGIN/oc-lettings
+          tag: $CIRCLE_SHA1
 
   
 
