@@ -7,7 +7,7 @@ RUN mkdir /code
 WORKDIR /code
 #copy requirement to be install
 COPY requirements.txt /code/
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 #copy project
 COPY . /code/
 # Collect static files
