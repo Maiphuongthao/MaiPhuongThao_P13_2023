@@ -54,6 +54,6 @@ workflows:
   build_and_test:
     jobs:
       # - testing
-      publish_docker:
+      - publish_docker
           # requires:
             # - testing
