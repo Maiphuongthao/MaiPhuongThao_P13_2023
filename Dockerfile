@@ -7,7 +7,6 @@ RUN mkdir /code
 WORKDIR /code
 #copy requirement to be install
 COPY requirements.txt /code/
-RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 #copy project
 COPY . /code/
