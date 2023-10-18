@@ -35,9 +35,7 @@ workflows:
       - docker/publish:
           extra_build_args: '--build-arg SECRET_KEY=$SECRET_KEY --build-arg SENTRY_DNS=$SENTRY_DNS'
           image: $DOCKER_LOGIN/oc-lettings
-          remote-docker-version: 20.10.12
           tag: $CIRCLE_SHA1
           use-buildkit: true
-          use-remote-docker: true
           requires:
             - testing
