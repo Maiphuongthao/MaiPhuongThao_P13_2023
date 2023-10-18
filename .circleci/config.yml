@@ -30,13 +30,16 @@ jobs:
 
   publish_docker:
     docker:
-      - image: cimg/python:3.8
+      - image: cimg/python:3.9
         environment:
           SECRET_KEY: $SECRET_KEY
           SENTRY_DNS: $SENTRY_DNS
           DEBUG: $DEBUG
     steps:
       - checkout
+      - run: 
+        name: lol
+        command: python --version
       - setup_remote_docker:
           version: 20.10.12
       - run:
