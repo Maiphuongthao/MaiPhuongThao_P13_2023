@@ -27,36 +27,48 @@ jobs:
             # flake8
             # pytest --cov
             # echo "TESTING COMMIT $CIRCLE_SHA1"
-
-  publish_docker:
+# 
+  # publish_docker:
+    # docker:
+      # - image: cimg/python:3.9
+        # environment:
+          # SECRET_KEY: $SECRET_KEY
+          # SENTRY_DNS: $SENTRY_DNS
+          # DEBUG: $DEBUG
+    # steps:
+      # - checkout
+      # - setup_remote_docker:
+          # version: 20.10.12
+      # - run:
+          # name: Build and publish Docker image
+          # command: |
+            # docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+            # docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 \
+            # --build-arg SECRET_KEY=$SECRET_KEY \
+            # --build-arg SENTRY_DNS=$SENTRY_DNS \
+            # --build-arg DEBUG=$DEBUG \
+            # .
+            # docker push $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1
+  deploy_to_aws:
     docker:
       - image: cimg/python:3.9
         environment:
-          SECRET_KEY: $SECRET_KEY
-          SENTRY_DNS: $SENTRY_DNS
-          DEBUG: $DEBUG
+          SSH_USER: $SSH_USER
+          SSH_HOST: $SSH_HOST
     steps:
       - checkout
-      - run: 
-          name: lol
-          command: python --version
-      - setup_remote_docker:
-          version: 20.10.12
       - run:
-          name: Build and publish Docker image
+          name: Test deploy 
           command: |
-            docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-            docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 \
-            --build-arg SECRET_KEY=$SECRET_KEY \
-            --build-arg SENTRY_DNS=$SENTRY_DNS \
-            --build-arg DEBUG=$DEBUG \
-            .
-            docker push $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1
+            ssh $SSH_USER@$SSH_HOST date
+
+
 
 workflows:
   build_and_test:
     jobs:
       # - testing
-      - publish_docker
+      # - publish_docker
           # requires:
             # - testing
+      - deploy_to_aws

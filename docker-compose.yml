@@ -4,13 +4,12 @@ services:
   web:
     build: .
     image: maiphuongthao/oc-lettings:latest
-    volumes:
-      - .:/code
+    # volumes:
+      # - .:/code
       # - .db.sqlite3
-      - /static:/static
     ports:
       - "8000:8000"
-    environment:
-      - SECRET_KEY=${SECRET_KEY}
-      - SENTRY_DNS=${SENTRY_DNS}
-      - DEBUG=${DEBUG}
+    # environment:
+      # - SECRET_KEY=${SECRET_KEY}
+      # - SENTRY_DNS=${SENTRY_DNS}
+      # - DEBUG=${DEBUG}
