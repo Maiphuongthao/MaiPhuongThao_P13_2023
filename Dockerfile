@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3
 #ENV VARIABLE SET DISABLE .PYC FILES vs no buffering infos   
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -6,6 +6,7 @@ ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
 #copy requirement to be install
+RUN pip install --upgrade pip
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 #copy project
