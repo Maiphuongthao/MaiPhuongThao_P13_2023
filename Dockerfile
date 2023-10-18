@@ -14,5 +14,5 @@ COPY . /code/
 ENV SECRET_KEY ${SECRET_KEY}
 ENV SENTRY_DNS ${SENTRY_DNS}
 ENV DEBUG ${DEBUG}
-RUN python manage.py collectstatic --noinput
+# RUN python manage.py collectstatic --noinput
 CMD gunicorn oc_lettings_site.wsgi -b 0.0.0.0:8000
