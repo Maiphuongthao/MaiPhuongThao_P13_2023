@@ -43,10 +43,10 @@ jobs:
           name: Build and publish Docker image
           command: |
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-            docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 \
+            docker build -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 .
             # --build-arg SECRET_KEY=$SECRET_KEY \
             # --build-arg SENTRY_DNS=$SENTRY_DNS \
-            .
+            # .
             docker push $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1
 
 workflows:
