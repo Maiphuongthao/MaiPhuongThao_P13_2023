@@ -10,7 +10,7 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 #copy project
 COPY . /code/
-ARG SECRE_KEY=${SECRE_KEY}
+ARG SECRET_KEY=${SECRET_KEY}
 ARG SENTRY_DNS=${SENTRY_DNS}
 ARG DEBUG=${DEBUG}
 # Collect static files
