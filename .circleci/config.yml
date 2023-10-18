@@ -44,5 +44,6 @@ workflows:
     jobs:
       - testing
       - build_image:
-          requires:
-            - testing
+          - docker/publish:
+              requires:
+                - testing
