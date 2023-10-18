@@ -4,9 +4,10 @@ services:
   web:
     build: .
     image: maiphuongthao/oc-lettings:latest
-    # volumes:
-      # - .:/code
+    volumes:
+      - .:/code
       # - .db.sqlite3
+      - ./staticfiles
     ports:
       - "8000:8000"
     # environment:
