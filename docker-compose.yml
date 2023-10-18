@@ -11,5 +11,5 @@ services:
       - "8000:8000"
     # environment:
       # - SECRET_KEY=${SECRET_KEY}
-      # - SENTRY_DNS=${SENTRY_DNS}
+      # - SENTRY_DSN=${SENTRY_DSN}
       # - DEBUG=${DEBUG}

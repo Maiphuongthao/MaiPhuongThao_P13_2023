@@ -12,7 +12,7 @@ RUN pip install -r requirements.txt
 COPY . /code/
 # Collect static files
 ARG SECRET_KEY 
-ARG SENTRY_DNS 
+ARG SENTRY_DSN 
 ARG DEBUG 
 # ENV DEBUG ${DEBUG}
 RUN python manage.py collectstatic --noinput
