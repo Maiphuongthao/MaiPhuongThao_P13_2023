@@ -50,11 +50,8 @@ jobs:
             # .
             # docker push $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1
   deploy_to_aws:
-    docker:
-      - image: cimg/python:3.9
-        environment:
-          SSH_USER: $SSH_USER
-          SSH_HOST: $SSH_HOST
+    machine:
+      image: ubuntu-2204:2023.07.2
     steps:
       - checkout
       - run:
