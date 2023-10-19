@@ -11,5 +11,10 @@ RUN pip install -r requirements.txt
 #copy project
 COPY . /code/
 # Collect static files
+ARG SECRET_KEY 
+ARG SENTRY_DSN 
+ARG DEBUG 
+# ENV DEBUG ${DEBUG}
+EXPOSE 80
 RUN python manage.py collectstatic --noinput
-CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "mysite.wsgi:application"]
+CMD gunicorn oc_lettings_site.wsgi --log-level debug -b 0.0.0.0:80
