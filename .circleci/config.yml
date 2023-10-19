@@ -64,6 +64,9 @@ jobs:
       - run:
           name: Test deploy 
           command: |
+            echo "$SSH_KEY" >> /tmp/deploy_key
+            chmod 600 /tmp/deploy_key
+            echo $SSH_HOST
             # 1- Install AWS CLI
             source env/bin/activate
             curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
@@ -76,9 +79,8 @@ jobs:
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
             # 6- Give the ingress rule some time to propogate
             sleep 5
-            # connect to intance
-            ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST}
-            docker-compose up -d
+            #connect to intance
+            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST
             # 8- Remove the ingress rule
             ~/bin/aws ec2 revoke-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
