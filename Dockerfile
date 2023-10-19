@@ -15,6 +15,6 @@ ARG SECRET_KEY
 ARG SENTRY_DSN 
 ARG DEBUG 
 # ENV DEBUG ${DEBUG}
+EXPOSE 80
 RUN python manage.py collectstatic --noinput
-EXPOSE 8000
-CMD gunicorn oc_lettings_site.wsgi -b 0.0.0.0:8000
+CMD gunicorn oc_lettings_site.wsgi -b 0.0.0.0:80
