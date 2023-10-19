@@ -78,7 +78,7 @@ jobs:
             echo "6- Give the ingress rule some time to propagate"
             sleep 5
             echo "connecting to instance"
-            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD && docker-compose up -d "
+            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker login -u $DOCKER_LOGIN -p ${DOCKER_PASSWORD} && docker-compose up -d "
             echo "docker stuff"
             # docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
             # docker-compose up -d
