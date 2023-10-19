@@ -52,8 +52,6 @@ jobs:
   deploy_to_aws:
     docker:
       - image: cimg/python:3.8
-        environment:
-          AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
     steps:
       - checkout
       - run:
@@ -66,7 +64,7 @@ jobs:
           command: |
             # echo "$SSH_KEY" >> /tmp/deploy_key
             # chmod 600 /tmp/deploy_key
-            
+
             # 1- Install AWS CLI
             source env/bin/activate
             curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
@@ -80,7 +78,10 @@ jobs:
             # 6- Give the ingress rule some time to propogate
             sleep 5
             #connect to intance
-            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST
+            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST << 'ENDSSH'
+              docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+              docker-compose up -d
+            ENDSSH
             # 8- Remove the ingress rule
             ~/bin/aws ec2 revoke-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
