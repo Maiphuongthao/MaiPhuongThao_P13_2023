@@ -77,7 +77,7 @@ jobs:
             # 6- Give the ingress rule some time to propogate
             sleep 5
             # connect to intance
-            ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST} 'bash -s' <<-'SSH-SCRIPT'
+            ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST} 'bash -s'
               sudo apt update
               sudo apt install docker.io
               sudo systemctl start docker
@@ -85,9 +85,10 @@ jobs:
               sudo usermod -aG docker $DOCKER_LOGIN
               exit
             SSH-SCRIPT
-            ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST} 'bash -s' <<-'SSH-SCRIPT'
-              docker ps
+            ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST} 'bash -s'
+              docker-compose up -d
             SSH-SCRIPT
+            
             # 8- Remove the ingress rule
             ~/bin/aws ec2 revoke-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
