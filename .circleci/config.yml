@@ -78,7 +78,6 @@ jobs:
             sleep 5
             # connect to intance
             ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST} 'bash -s'
-              docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
               docker-compose up -d
             SSH-SCRIPT
             # 8- Remove the ingress rule
