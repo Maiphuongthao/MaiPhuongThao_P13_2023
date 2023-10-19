@@ -48,7 +48,7 @@ jobs:
             --build-arg SENTRY_DSN=$SENTRY_DSN \
             --build-arg DEBUG=$DEBUG \
             .
-            docker push $DOCKER_LOGIN/oc-lettings:latest $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1
+            docker push --all-tags $DOCKER_LOGIN/oc-lettings
   deploy_to_aws:
     docker:
       - image: cimg/python:3.8
