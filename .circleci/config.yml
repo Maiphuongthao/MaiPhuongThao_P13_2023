@@ -76,11 +76,9 @@ jobs:
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
             # 6- Give the ingress rule some time to propogate
             sleep 5
+            docker-compose up -d
             # connect to intance
-            ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST} 'bash -s'
-              docker run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock docker:dind /bin/sh
-              docker-compose up -d
-            SSH-SCRIPT
+            ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST}
             # 8- Remove the ingress rule
             ~/bin/aws ec2 revoke-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
