@@ -62,6 +62,7 @@ jobs:
           command: |
             echo "$SSH_KEY" >> /tmp/deploy_key
             chmod 600 /tmp/deploy_key
+            echo $SSH_HOST
             ssh -i /tmp/deploy_key circleci@$SSH_HOST date
 
 
