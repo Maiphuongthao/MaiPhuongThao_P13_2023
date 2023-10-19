@@ -70,15 +70,16 @@ jobs:
             curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
             unzip awscli-bundle.zip
             ./awscli-bundle/install -b ~/bin/aws
-            # 2- Get the public IP of the current CircleCI runner
+            echo "2- Get the public IP of the current CircleCI runner"
             PUBLIC_IP=$(curl ipinfo.io/ip)
-            # 5- Add an ingress rule to the security group
+            echo " 5- Add an ingress rule to the security group"
             ~/bin/aws ec2 authorize-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
-            # 6- Give the ingress rule some time to propogate
+            echo "6- Give the ingress rule some time to propagate"
             sleep 5
-            #connect to intance
+            echo "connecting to instance"
             ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST
+            echo "docker stuff"
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
             docker-compose up -d
             # SSH-SCRIPT
