@@ -64,8 +64,8 @@ jobs:
       - run:
           name: Test deploy 
           command: |
-            echo "$SSH_KEY" >> /tmp/deploy_key
-            chmod 600 /tmp/deploy_key
+            # echo "$SSH_KEY" >> /tmp/deploy_key
+            # chmod 600 /tmp/deploy_key
             # 1- Install AWS CLI
             source env/bin/activate
             curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
