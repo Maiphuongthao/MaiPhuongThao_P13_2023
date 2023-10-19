@@ -73,6 +73,7 @@ jobs:
             echo "2- Get the public IP of the current CircleCI runner"
             PUBLIC_IP=$(curl ipinfo.io/ip)
             echo " 5- Add an ingress rule to the security group"
+            echo "region: $AWS_DEFAULT_REGION"
             ~/bin/aws ec2 authorize-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
             echo "6- Give the ingress rule some time to propagate"
