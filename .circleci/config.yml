@@ -78,10 +78,9 @@ jobs:
             echo "6- Give the ingress rule some time to propagate"
             sleep 5
             echo "connecting to instance"
-            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST
             echo "docker stuff"
-            docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-            docker-compose up -d
+            # docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+            # docker-compose up -d
             # SSH-SCRIPT
             # 8- Remove the ingress rule
             ~/bin/aws ec2 revoke-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
