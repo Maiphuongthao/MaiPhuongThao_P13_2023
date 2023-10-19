@@ -81,7 +81,7 @@ jobs:
             ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p ./code"
             scp -o StrictHostKeyChecking=no -r ./* $SSH_USER@$SSH_HOST:./code
             echo "connecting to instance"
-            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd code && docker login -u $DOCKER_LOGIN -p '${DOCKER_PASSWORD}' && docker-compose up -d "
+            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd code && docker login -u $DOCKER_LOGIN -p '${DOCKER_PASSWORD}' && docker-compose pull && docker-compose up -d "
             echo "docker stuff"
             # docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
             # docker-compose up -d

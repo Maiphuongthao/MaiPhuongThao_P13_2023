@@ -126,7 +126,9 @@ STATIC_URL = "/static/"
 #     os.path.join(BASE_DIR, "static"),
 # 
 # radically staticfiles = self-container unit can be deployed anywhere
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
 # Sentry setup
 sentry_sdk.init(
