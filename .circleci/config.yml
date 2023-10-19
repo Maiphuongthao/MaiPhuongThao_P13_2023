@@ -77,7 +77,7 @@ jobs:
             # 6- Give the ingress rule some time to propogate
             sleep 5
             # connect to intance
-            ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST} 'bash -s'
+            ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST} 'bash -s' <<-'SSH-SCRIPT'->>
               sudo apt update
               sudo apt install docker.io
               sudo systemctl start docker
@@ -85,7 +85,7 @@ jobs:
               sudo usermod -aG docker $DOCKER_LOGIN
               exit
             SSH-SCRIPT
-            ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST} 'bash -s'
+            ssh -o StrictHostKeyChecking=no $SSH_USER@${SSH_HOST} 'bash -s' <<-'SSH-SCRIPT'->>
               docker-compose up -d
             SSH-SCRIPT
             
