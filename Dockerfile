@@ -17,4 +17,4 @@ ARG DEBUG
 # ENV DEBUG ${DEBUG}
 EXPOSE 80
 RUN python manage.py collectstatic --noinput
-CMD gunicorn oc_lettings_site.wsgi -b 0.0.0.0:80
+CMD gunicorn oc_lettings_site.wsgi --log-level debug -b 0.0.0.0:80
