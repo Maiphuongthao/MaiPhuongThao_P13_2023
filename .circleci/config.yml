@@ -101,8 +101,7 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      # # - testing
       - publish_docker
-      #     # requires:
-      #       # - testing
-      - deploy_to_aws
+      - deploy_to_aws:
+          requires:
+            - publish_docker
