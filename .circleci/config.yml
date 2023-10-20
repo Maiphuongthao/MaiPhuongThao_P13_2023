@@ -78,14 +78,11 @@ jobs:
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
             echo "6- Give the ingress rule some time to propagate"
             sleep 5
-            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p ./code"
-            scp -o StrictHostKeyChecking=no -r ./* $SSH_USER@$SSH_HOST:./code
+            # ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p ./code"
+            scp -o StrictHostKeyChecking=no ./docker-compose.yml $SSH_USER@$SSH_HOST
             echo "connecting to instance"
-            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd code && docker login -u $DOCKER_LOGIN -p '${DOCKER_PASSWORD}' && docker-compose pull && docker-compose up -d "
+            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker login -u $DOCKER_LOGIN -p '${DOCKER_PASSWORD}' && docker-compose pull && docker-compose up -d "
             echo "docker stuff"
-            # docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-            # docker-compose up -d
-            # SSH-SCRIPT
             # 8- Remove the ingress rule
             ~/bin/aws ec2 revoke-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
