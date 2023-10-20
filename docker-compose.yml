@@ -3,10 +3,10 @@ version: '3'
 services:
   web:
     image: maiphuongthao/oc-lettings:latest
-    volumes:
-      - .:/code
+    # volumes:
+      # - .:/code
       # - .db.sqlite3
-      - ./static:/staticfiles
+      # - ./static:/staticfiles
     ports:
       - "80:80"
     # environment:
