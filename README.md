@@ -28,7 +28,7 @@
     <img src="https://skillicons.dev/icons?i=sqlite" />
   </a> 
 </p>
-![Alt text](static/assets/img/circleci-icon.svg)
+![Static Badge](static/assets/img/circleci-icon.svg)
 
 ## Résumé
 
