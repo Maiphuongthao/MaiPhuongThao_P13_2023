@@ -1,8 +1,35 @@
 
 <p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=python,django,bootstrap,css,sentry,docker,circleci,awsec2  " />
+  <a href="https://www.python.org/">
+    <img src="https://skillicons.dev/icons?i=python" />
   </a>
+  <a href="https://www.djangoproject.com/">
+    <img src="https://skillicons.dev/icons?i=python,django,bootstrap,css,sentry,docker,circleci,aws,sqlite" />
+  </a>
+  <a href="https://www.djangoproject.com/">
+    <img src="https://skillicons.dev/icons?i=django" />
+  </a>
+  <a href="https://getbootstrap.com/">
+    <img src="https://skillicons.dev/icons?i=bootstrap" />
+  </a>
+  <a href="https://www.w3schools.com/css/">
+    <img src="https://skillicons.dev/icons?i=css" />
+  </a>
+  <a href="https://docs.sentry.io/">
+    <img src="https://skillicons.dev/icons?i=sentry" />
+  </a>
+  <a href="https://www.docker.com/">
+    <img src="https://skillicons.dev/icons?i=docker" />
+  </a>
+  <a href="https://circleci.com/docs/jobs-steps/">
+    <img src="https://skillicons.dev/icons?i=circleci" />
+  </a>
+  <a href="https://aws.amazon.com/fr/ec2/">
+    <img src="https://skillicons.dev/icons?i=aws" />
+  </a>
+  <a href="https://www.sqlite.org/index.html">
+    <img src="https://skillicons.dev/icons?i=sqlite" />
+  </a> 
 </p>
 
 ## Résumé
