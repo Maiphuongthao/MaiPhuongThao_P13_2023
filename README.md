@@ -1,3 +1,10 @@
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=python,django,css,boostrap,sentry,docker,circleci,awsec2  " />
+  </a>
+</p>
+
 ## Résumé
 
 Site web d'Orange County Lettings
