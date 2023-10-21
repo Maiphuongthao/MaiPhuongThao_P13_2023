@@ -4,9 +4,6 @@
     <img src="https://skillicons.dev/icons?i=python" />
   </a>
   <a href="https://www.djangoproject.com/">
-    <img src="https://skillicons.dev/icons?i=python,django,bootstrap,css,sentry,docker,circleci,aws,sqlite" />
-  </a>
-  <a href="https://www.djangoproject.com/">
     <img src="https://skillicons.dev/icons?i=django" />
   </a>
   <a href="https://getbootstrap.com/">
