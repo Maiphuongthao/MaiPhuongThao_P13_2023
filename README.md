@@ -19,7 +19,7 @@
     <img src="https://skillicons.dev/icons?i=docker" />
   </a>
   <a href="https://circleci.com/docs/jobs-steps/">
-    <img src="static/assets//img/circleci.png" />
+    <img src="static/assets//img/icons8-circleci-a-continuous-integration-and-delivery-platform-for-linux,-macos,-and-android.-96.png" />
   </a>
   <a href="https://aws.amazon.com/fr/ec2/">
     <img src="https://skillicons.dev/icons?i=aws" />
