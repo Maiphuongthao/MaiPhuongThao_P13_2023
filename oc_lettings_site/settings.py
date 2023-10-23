@@ -15,7 +15,7 @@ SENTRY_DSN = os.getenv("SENTRY_DSN")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-print('IN THE SETTINGS FILE')
+print("IN THE SETTINGS FILE")
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY", default=get_random_secret_key())
 print(f"SECRET KEY: {SECRET_KEY}")
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware", 
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -122,9 +122,9 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATIC_URL = "/static/"
-# STATICFILES_DIRS = 
+# STATICFILES_DIRS =
 #     os.path.join(BASE_DIR, "static"),
-# 
+#
 # radically staticfiles = self-container unit can be deployed anywhere
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"

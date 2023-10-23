@@ -5,29 +5,28 @@ orbs:
 
 # Define the jobs we want to run for this project
 jobs:
-  # testing:
-    # docker:
-      # - image: cimg/python:3.8
-        # environment:
-          # SECRET_KEY: $SECRET_KEY
-          # SENTRY_DSN: $SENTRY_DSN
-          # DEBUG: $DEBUG
-    # steps:
-      # - checkout
-      # - run:
-          # name: install dependencies
-          # command: |
-            # python3 -m venv env
-            # source env/bin/activate
-            # pip install -r requirements.txt
-      # - run:
-          # name: launch test
-          # command: |
-            # source env/bin/activate
-            # flake8
-            # pytest --cov
-            # echo "TESTING COMMIT $CIRCLE_SHA1"
-
+  testing:
+    docker:
+      - image: cimg/python:3.8
+        environment:
+          SECRET_KEY: $SECRET_KEY
+          SENTRY_DSN: $SENTRY_DSN
+          DEBUG: $DEBUG
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv env
+            source env/bin/activate
+            pip install -r requirements.txt
+      - run:
+          name: launch test
+          command: |
+            source env/bin/activate
+            flake8
+            pytest --cov
+            echo "TESTING COMMIT $CIRCLE_SHA1"
   publish_docker:
     docker:
       - image: cimg/python:3.9
@@ -78,30 +77,28 @@ jobs:
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
             echo "6- Give the ingress rule some time to propagate"
             sleep 5
-            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p ./code"
-            scp -o StrictHostKeyChecking=no -r ./* $SSH_USER@$SSH_HOST:./code
+            # ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p ./code"
+            scp -o StrictHostKeyChecking=no ./docker-compose.yml $SSH_USER@$SSH_HOST:/home/ubuntu
             echo "connecting to instance"
-            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd code && docker login -u $DOCKER_LOGIN -p '${DOCKER_PASSWORD}' && docker-compose pull && docker-compose up -d "
+            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker login -u $DOCKER_LOGIN -p '${DOCKER_PASSWORD}' && docker-compose pull && docker-compose -f /home/ubuntu/docker-compose.yml up -d"
             echo "docker stuff"
-            # docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-            # docker-compose up -d
-            # SSH-SCRIPT
             # 8- Remove the ingress rule
             ~/bin/aws ec2 revoke-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
               --protocol tcp --port 22 --cidr $PUBLIC_IP/24
-  # cleaning:
-    # steps:
-      # - run:
-          # name: clean
-          # command: |
-            # ~/bin/aws ec2 revoke-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
-              # --protocol tcp --port 22 --cidr $PUBLIC_IP/24
-#
 
 workflows:
-  build_and_test:
+  build_test_deploy:
     jobs:
-      - publish_docker
+      - testing
+      - publish_docker:
+          requires:
+            - testing
+          filters:
+            branches:
+              only: master
       - deploy_to_aws:
           requires:
             - publish_docker
+          filters:
+            branches:
+              only: master
