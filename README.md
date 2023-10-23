@@ -19,7 +19,7 @@
     <img src="https://skillicons.dev/icons?i=docker" />
   </a>
   <a href="https://circleci.com/docs/jobs-steps/">
-    <img style="background-color: white" width="48" height="48" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-circleci-a-continuous-integration-and-delivery-platform-for-linux-macos-and-android-logo-color-tal-revivo.png" alt="external-circleci-a-continuous-integration-and-delivery-platform-for-linux-macos-and-android-logo-color-tal-revivo"/>
+    <img width="48" height="48" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-circleci-a-continuous-integration-and-delivery-platform-for-linux-macos-and-android-logo-color-tal-revivo.png" alt="external-circleci-a-continuous-integration-and-delivery-platform-for-linux-macos-and-android-logo-color-tal-revivo"/>
   </a>
   <a href="https://aws.amazon.com/fr/ec2/">
     <img src="https://skillicons.dev/icons?i=aws" />
