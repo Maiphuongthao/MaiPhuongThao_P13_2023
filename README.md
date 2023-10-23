@@ -32,11 +32,12 @@
 
 
 ## Menu   
-1. **[General information](#General information)**   
+1. **[General informations](#general-informations)**
+2. **[Prerequisite list](#list-of-prerequisites)**    
 2. **[Documentation Read the Docs](#documentation)**   
 3. **[Fonctionnalitées](#fonctionnalitées)**   
 4. **[Interface d'administration Django](#interface-administration-django)**   
-5. **[Liste pré-requis](#liste-pre-requis)**   
+  
 6. **[Tests et couverture de code](#tests-et-couverture-de-code)**   
 7. **[Création environnement](#creation-environnement)**   
 8. **[Activation environnement](#activation-environnement)**   
@@ -48,13 +49,51 @@
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-<div id="informations-générales"></div>
+<div id="general-informations"></div>
 
-### General information
+### General informations
 
-Orange County Lettings is a startupo 
+Orange County Lettings is a start-up real estate company in the US.
+The but is to improve the base code from their github [Python-OC-lettings_FR](https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR), then to the deployment.
+
+Basic demands:
+
+__Technical aspects__
+
+- Organise the project to 2 diffirents apps: lettings & profiles to improve the modular architecture
+- Fill the new tables with informations of old tables by using Django migrations
+- Organise correct templates files to correct apps 
+- Rename request html templates
+- Clear all unecessary files from project folder
+
+__Reduce several diver problems__
+
+- Several reported linting errors need to be fixed. Do not change the information from setup.cfg
+- Django admin shows error for Address model , plural version
+- Create 404 and 500 pafe to ensure when there is needed
+- Correct docstring comments
+- Create tests for projects and apps with coverage >=80%
+
+__Monitoring and tracking errors with Sentry__
+
+- Build un monitoring system by using Sentry
+- Build logging to project to survey the errors
+
+__Pipeline CI/CD wtih [CircleCI](https://circleci.com/docs/jobs-steps/) and deploy the project to [AWS EC2](https://aws.amazon.com/fr/ec2/) instance__
+
+- *Compilation*: Test the linting and project tests
+- *Containerisation*: Build and push image with [Docker and Docker-compose](https://skillicons.dev/icons?i=docker)
+- *Deployment*: Deploy the site to AWS EC2
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+<div id="list-of-prerequisites"></div>
 
 
+
+
+
+## Développement local
 
 ### Prérequis
 
