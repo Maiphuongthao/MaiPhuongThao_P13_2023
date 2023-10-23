@@ -28,6 +28,8 @@
     <img src="https://skillicons.dev/icons?i=sqlite" />
   </a> 
 </p>
+
+
 ![Static Badge](static/assets/img/circleci-icon.svg)
 
 ## Résumé
