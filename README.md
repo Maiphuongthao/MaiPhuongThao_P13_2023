@@ -1,4 +1,4 @@
-
+![Static Badge](static/assets/img/circleci-icon.svg)
 <p align="center">
   <a href="https://www.python.org/">
     <img src="https://skillicons.dev/icons?i=python" />
@@ -30,7 +30,6 @@
 </p>
 
 
-![Static Badge](static/assets/img/circleci-icon.svg)
 
 ## Résumé
 
