@@ -33,9 +33,11 @@
 
 ## Menu   
 1. **[General informations](#general-informations)**
-2. **[Prerequisite list](#list-of-prerequisites)**    
-2. **[Documentation Read the Docs](#documentation)**   
-3. **[Fonctionnalitées](#fonctionnalitées)**   
+2. **[Prerequisite list](#list-of-prerequisites)**
+3. **[Installation](#installation)**
+4. **[Development the site locally](#launch-locally)**       
+2. **[Admin](#admin)**   
+3. **[Production](#production)**   
 4. **[Interface d'administration Django](#interface-administration-django)**   
   
 6. **[Tests et couverture de code](#tests-et-couverture-de-code)**   
@@ -89,80 +91,136 @@ __Pipeline CI/CD wtih [CircleCI](https://circleci.com/docs/jobs-steps/) and depl
 
 <div id="list-of-prerequisites"></div>
 
+### Prerequisite list
 
-
-
-
-## Développement local
-
-### Prérequis
-
-- Compte GitHub avec accès en lecture à ce repository
+- Compte GitHub with reading access to this repository
 - Git CLI
 - SQLite3 CLI
-- Interpréteur Python, version 3.6 ou supérieure
+- Python 3.6 or higher
+- Django 3.0
+- Docker 24.0
+- Docker-compose 2.22.0
+- AWS CE2
+- Sentry
 
-Dans le reste de la documentation sur le développement local, il est supposé que la commande `python` de votre OS shell exécute l'interpréteur Python ci-dessus (à moins qu'un environnement virtuel ne soit activé).
+--------------------------------------------------------------------------------------------------------------------------------
 
-### macOS / Linux
+<div id="installation"></div>
 
-#### Cloner le repository
+### Installation
 
-- `cd /path/to/put/project/in`
-- `git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git`
+#### Clone the repository
 
-#### Créer l'environnement virtuel
+- `git clone https://github.com/Maiphuongthao/MaiPhuongThao_P13_2023.git`
+- `cd MaiPhuongThao_P13_2023`
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `python -m venv venv`
-- `apt-get install python3-venv` (Si l'étape précédente comporte des erreurs avec un paquet non trouvé sur Ubuntu)
-- Activer l'environnement `source venv/bin/activate`
-- Confirmer que la commande `python` exécute l'interpréteur Python dans l'environnement virtuel
-`which python`
-- Confirmer que la version de l'interpréteur Python est la version 3.6 ou supérieure `python --version`
-- Confirmer que la commande `pip` exécute l'exécutable pip dans l'environnement virtuel, `which pip`
-- Pour désactiver l'environnement, `deactivate`
+#### Create variable environnement and install the requirements
 
-#### Exécuter le site
+- The programme uses multiples modules and libraries which are noted in requirements.txt to be installed.
+- It's recommended to create the variable environnement to install any module
 
-- `cd /path/to/Python-OC-Lettings-FR`
+Windows :
+
+   ```
+    
+    python -m venv env 
+    env\scripts\activate
+
+    pip install -r requirements.txt
+
+  ```
+
+MacOS et Linux :
+
+  ```
+    
+    python3 -m venv env 
+    source env/bin/activate
+
+    pip install -r requirements.txt
+
+  ```
+
+#### Protect the secret informations
+
+- `touch .env` to create an env file
+- In side the .env file copy and add values to three variables that you found in .evn.example
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+<div id="launch-locally"></div>
+
+### Development the site locally
+
+- `cd MaiPhuongThao_P13_2023`
 - `source venv/bin/activate`
-- `pip install --requirement requirements.txt`
+
+#### launch the site
+
+__Without docker__
+
 - `python manage.py runserver`
 - Aller sur `http://localhost:8000` dans un navigateur.
-- Confirmer que le site fonctionne et qu'il est possible de naviguer (vous devriez voir plusieurs profils et locations).
+
+__With docker__
+
+- You will need to install docker and docker-compose locally, following [here](https://www.docker.com/get-started/)
+
+- `docker-compose down`
+- `docker-compose-up -d`
+
+#### Have a look at the tests and tests'scoverage
+
+- `pytest`
+- `pytest --cov`
 
 #### Linting
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `source venv/bin/activate`
 - `flake8`
 
-#### Tests unitaires
+#### Database
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `source venv/bin/activate`
-- `pytest`
+- `sqlite3` to open sqlite3 shell
+- `.open oc-lettings-site.sqlite3` to connect to database
+- `.tables` to show tables in db 
+- `pragma table_info(profiles_profile);` to show profile's columns 
+- `select user_id, favorite_city from profiles_profile where favorite_city like 'B%';`to launch a request to profile table, 
+- `.quit` to quit the shell
 
-#### Base de données
+--------------------------------------------------------------------------------------------------------------------------------
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- Ouvrir une session shell `sqlite3`
-- Se connecter à la base de données `.open oc-lettings-site.sqlite3`
-- Afficher les tables dans la base de données `.tables`
-- Afficher les colonnes dans le tableau des profils, `pragma table_info(Python-OC-Lettings-FR_profile);`
-- Lancer une requête sur la table des profils, `select user_id, favorite_city from
-  Python-OC-Lettings-FR_profile where favorite_city like 'B%';`
-- `.quit` pour quitter
+<div id="installation"></div>
 
-#### Panel d'administration
+### Admin
 
-- Aller sur `http://localhost:8000/admin`
-- Connectez-vous avec l'utilisateur `admin`, mot de passe `Abc1234!`
+- Connect to `http://localhost:8000/admin` page
+- User`admin`, mot de passe `Abc1234!`
 
-### Windows
+--------------------------------------------------------------------------------------------------------------------------------
 
-Utilisation de PowerShell, comme ci-dessus sauf :
+<div id="installation"></div>
 
-- Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
-- Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+### Production
+
+- This project is made in production mode so there is alread .circleci folder and config.yml file
+
+#### Setup CircleCI/CD
+
+- Create an account circleci then connect to this project via githup, following instruction [here](https://www.digitalocean.com/community/tutorials/how-to-automate-deployment-using-circleci-and-github-on-ubuntu-18-04)
+
+- Remember to use the circle folder and config.yml file of the project
+- Add environnement variables, following instruction [here](https://circleci.com/docs/set-environment-variable/):
+| Key                | Value                         |
+|---------------------|--------------------------------|
+| DOCKER_LOGIN        | Docker Hub Id   |
+| DOCKER_PASSWORD     | Docker Hub password  |
+| DEBUG      | False       |
+| SECRET_KEY          | Django secret key        |
+| SENTRY_DSN          | Sentry DSN              |
+| AWS_ACCESS_KEY_ID          | AWS access key id               |
+| AWS_SECRET_ACCESS_KEY   | AWS secret key of access key               |
+| AWS_DEFAULT_REGION  | aws default region        |
+| SG_ID          | sg of aws ec2 instance security group                 |
+| SSH_HOST          | aws ec2 instance IP public or DNS public      |
+| SSH_USER          | aws ec2 instance user               |
+
