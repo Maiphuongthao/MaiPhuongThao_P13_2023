@@ -31,7 +31,7 @@
 
 
 
-## Menu   
+# Menu   
 1. **[General informations](#general-informations)**
 2. **[Prerequisite list](#list-of-prerequisites)**
 3. **[Installation](#installation)**
@@ -53,7 +53,7 @@
 
 <div id="general-informations"></div>
 
-### General informations
+## General informations
 
 Orange County Lettings is a start-up real estate company in the US.
 The but is to improve the base code from their github [Python-OC-lettings_FR](https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR), then to the deployment.
@@ -91,7 +91,7 @@ __Pipeline CI/CD wtih [CircleCI](https://circleci.com/docs/jobs-steps/) and depl
 
 <div id="list-of-prerequisites"></div>
 
-### Prerequisite list
+## Prerequisite list
 
 - Compte GitHub with reading access to this repository
 - Git CLI
@@ -107,7 +107,7 @@ __Pipeline CI/CD wtih [CircleCI](https://circleci.com/docs/jobs-steps/) and depl
 
 <div id="installation"></div>
 
-### Installation
+## Installation
 
 #### Clone the repository
 
@@ -150,7 +150,7 @@ MacOS et Linux :
 
 <div id="launch-locally"></div>
 
-### Development the site locally
+## Development the site locally
 
 - `cd MaiPhuongThao_P13_2023`
 - `source venv/bin/activate`
@@ -191,7 +191,7 @@ __With docker__
 
 <div id="installation"></div>
 
-### Admin
+## Admin
 
 - Connect to `http://localhost:8000/admin` page
 - User`admin`, mot de passe `Abc1234!`
@@ -200,7 +200,7 @@ __With docker__
 
 <div id="installation"></div>
 
-### Production
+## Production
 
 - This project is made in production mode so there is alread .circleci folder and config.yml file
 
@@ -210,6 +210,7 @@ __With docker__
 
 - Remember to use the circle folder and config.yml file of the project
 - Add environnement variables, following instruction [here](https://circleci.com/docs/set-environment-variable/):
+
 | Key                | Value                         |
 |---------------------|--------------------------------|
 | DOCKER_LOGIN        | Docker Hub Id   |
