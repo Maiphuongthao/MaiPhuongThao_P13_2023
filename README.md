@@ -204,6 +204,12 @@ __With docker__
 
 - This project is made in production mode so there is alread .circleci folder and config.yml file
 
+#### Setup AWS EC2
+
+- Create an AWS account and an EC2 instance by following [here](https://www.techtarget.com/searchcloudcomputing/tutorial/How-to-create-an-EC2-instance-from-AWS-Console)
+- Connect to instance then install docker and docker-compose [here](https://www.learnitguide.net/2023/04/how-to-install-docker-on-ubuntu.html)
+- create access key id and secret key by following [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+
 #### Setup CircleCI/CD
 
 - Create an account circleci then connect to this project via githup, following instruction [here](https://www.digitalocean.com/community/tutorials/how-to-automate-deployment-using-circleci-and-github-on-ubuntu-18-04)
@@ -225,3 +231,12 @@ __With docker__
 | SSH_HOST          | aws ec2 instance IP public or DNS public      |
 | SSH_USER          | aws ec2 instance user               |
 
+#### Deployment
+
+This project is using Trunk-base development as a version control management practice: one master branch, one development branch & Circleci pipeline
+
+- Testing:  After each commit on addition branch ( developement or else), the tests will be executed automatically
+- Build image: When the tests are passed and the branch is merged to master, docker contener and image will be created then sent to Docker Hub
+- Deploy: aws will be installed with circleci, then it will add circleci ingress to security group, then connect to aws ec2 instance, from there the docker which is installed in the instance will copy docker-compose file then search for latest image to deploy
+
+Here we have the website fully deployed to an ip public.
