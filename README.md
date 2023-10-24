@@ -38,16 +38,7 @@
 4. **[Development the site locally](#launch-locally)**       
 2. **[Admin](#admin)**   
 3. **[Production](#production)**   
-4. **[Interface d'administration Django](#interface-administration-django)**   
-  
-6. **[Tests et couverture de code](#tests-et-couverture-de-code)**   
-7. **[Création environnement](#creation-environnement)**   
-8. **[Activation environnement](#activation-environnement)**   
-9. **[Installation des librairies](#installation-librairies)**   
-10. **[Exécution de l'application](#execution-application)**   
-11. **[Rapport avec flake8](#rapport-flake8)**   
-12. **[Informations importantes sur les différents fichiers et dossiers](#informations-importantes)**   
-13. **[Auteur et contact](#auteur-contact)**  
+
 
 --------------------------------------------------------------------------------------------------------------------------------
 
