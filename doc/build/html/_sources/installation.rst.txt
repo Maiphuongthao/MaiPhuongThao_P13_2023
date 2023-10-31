@@ -6,6 +6,8 @@ Instructions sur l'installation du Project
 
  .. _GitHub: https://github.com/
 
+.
+
 Forker le projet
 ^^^^^^^^^^^^^^^^^
 
@@ -15,6 +17,7 @@ Rendez-vous sur la page du projet à mon `repo GitHub`_ et suivez ces étapes:
 
 .. _repo GitHub: https://github.com/Maiphuongthao/MaiPhuongThao_P13_2023
 
+.
 
 Clôner le repository
 ^^^^^^^^^^^^^^^^^^^^^

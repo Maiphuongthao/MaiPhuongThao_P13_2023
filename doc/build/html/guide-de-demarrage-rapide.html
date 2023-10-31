@@ -76,7 +76,7 @@
         
           <li class="toctree-l1 ">
             
-              <a href="description-du-projet.html" class="reference internal ">Description du Project</a>
+              <a href="description-du-projet.html" class="reference internal ">Description du Projet</a>
             
 
             
@@ -100,7 +100,9 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#guide-de-demarrage-rapide" class="reference internal">Guide de démarrage rapide</a></li>
+                  <li class="toctree-l2"><a href="#demarrage-avec-le-terminal" class="reference internal">Démarrage avec le terminal</a></li>
+                
+                  <li class="toctree-l2"><a href="#demarrage-avec-docker" class="reference internal">Démarrage avec Docker</a></li>
                 
               </ul>
             
@@ -185,6 +187,100 @@
             
   <section id="guide-de-demarrage-rapide">
 <h1>Guide de démarrage rapide<a class="headerlink" href="#guide-de-demarrage-rapide" title="Link to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Requirement:</em></p>
+<ul class="simple">
+<li><p>GitHub &amp; projet forké et clôné dans votre machine local</p></li>
+<li><p>Docker</p></li>
+<li><p>Sentry - DSN</p></li>
+<li><p>SECRET_KEY de Django projet</p></li>
+<li><p>DEBUG - True pour developpement ou False pour Production</p></li>
+</ul>
+</div>
+<p>.</p>
+<section id="demarrage-avec-le-terminal">
+<h2>Démarrage avec le terminal<a class="headerlink" href="#demarrage-avec-le-terminal" title="Link to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Il est conseillé d’éviter d’installer les modules, packages supplémentaires du projet directement dans votre base. C’est un bon habitude d’utiliser un environnement virtuel.</p>
+</div>
+<ol class="arabic simple">
+<li><p><strong>Envirennement virtuel</strong></p></li>
+</ol>
+<p>Ce projet est créée avec langage Python, vous devez installer une version <a class="reference external" href="technologies-et-langages.html">Python</a> compatible pour votre ordinateur.</p>
+<p>Dans le terminal de racine du projet, créer votre répertoire de environnement puis l’activer:</p>
+<p><em>Window</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">env</span>
+<span class="n">env</span>\<span class="n">scripts</span>\<span class="n">activate</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p><em>MacOS et Linux</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">env</span>
+<span class="n">source</span> <span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p><em>Déactivate l’environnement virtuel si besoin</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deactivate</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Créer un fichier .env pour les informations secrets</strong></p></li>
+</ol>
+<p><em>Dans le termnal du répertoire principal:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">touch</span> <span class="o">.</span><span class="n">env</span>
+</pre></div>
+</div>
+<p><em>Ajouter ces information dans le fichier:</em></p>
+<blockquote>
+<div><p>SENTRY_DSN = « Votre DSN de Sentry »</p>
+<p>SECRET_KEY = « Votre django secret key »</p>
+<p>DEBUG = « False » - ou True pour dévéloppement local</p>
+</div></blockquote>
+<p>Les informations dans .env ne va pas être partagé.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Lancer le projet avec la commande</strong></p></li>
+</ol>
+<p><em>Dans le terminal de racine du projet, tapez</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">runserver</span>
+</pre></div>
+</div>
+<p>Le projet vont va être lancé sur le localhost: 8000, à l’adresse : <a class="reference external" href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></p>
+<p>.</p>
+</section>
+<section id="demarrage-avec-docker">
+<h2>Démarrage avec Docker<a class="headerlink" href="#demarrage-avec-docker" title="Link to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Il est necessaire que <a class="reference external" href="technologies-et-langages.html">Docker</a> et Docker-compose installés dans votre ordinateurs.</p>
+</div>
+<ol class="arabic simple">
+<li><p><strong>Cas 1</strong></p></li>
+</ol>
+<p>Projet est clôné, l’environnement virtuel et installation des packages, modules sont terminée.
+Vous pouvez lancer les commandes suivantes dans votre terminal:</p>
+<p>Nettoyer les resources deployées avec</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span>
+</pre></div>
+</div>
+<p>Lancer le projet</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Cas 2</strong></p></li>
+</ol>
+<p>Si vous n’avez pas le projet installé dans votre ordinateur.</p>
+<p>Dans votre terminal, lancez la commande:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">publish</span> <span class="mf">0.0.0.0</span><span class="p">:</span><span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="o">--</span><span class="n">name</span> <span class="n">nomdeconteneur</span> <span class="o">-</span><span class="n">it</span> <span class="n">maiphuongthao</span><span class="o">/</span><span class="n">oc</span><span class="o">-</span><span class="n">lettings</span>
+</pre></div>
+</div>
+<p>Cette commande va chercher automatiquement sur réseau docker image qui contient le projet, la mettre dans un conteneur « nomdeconteneur » puis la lancer au port 80.</p>
+</section>
 </section>
 
 

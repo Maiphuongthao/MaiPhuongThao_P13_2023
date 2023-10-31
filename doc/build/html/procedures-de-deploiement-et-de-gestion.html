@@ -75,7 +75,7 @@
         
           <li class="toctree-l1 ">
             
-              <a href="description-du-projet.html" class="reference internal ">Description du Project</a>
+              <a href="description-du-projet.html" class="reference internal ">Description du Projet</a>
             
 
             
@@ -144,7 +144,11 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#procedures-de-deploiement-et-de-gestion" class="reference internal">Procédures de déploiement et de gestion</a></li>
+                  <li class="toctree-l2"><a href="#dockerfile-et-docker-compose" class="reference internal">Dockerfile et docker-compose</a></li>
+                
+                  <li class="toctree-l2"><a href="#aws-ec2" class="reference internal">AWS ec2</a></li>
+                
+                  <li class="toctree-l2"><a href="#circle-ci-cmd" class="reference internal">Circle CI/CMD</a></li>
                 
               </ul>
             
@@ -180,6 +184,209 @@
             
   <section id="procedures-de-deploiement-et-de-gestion">
 <h1>Procédures de déploiement et de gestion<a class="headerlink" href="#procedures-de-deploiement-et-de-gestion" title="Link to this heading">¶</a></h1>
+<p>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les installations sont nécessaires:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="technologies-et-langages.html">les langages et technologies</a> du projet.</p></li>
+<li><p><a class="reference external" href="installation.html">projet clôné</a> dans votre ordinateur</p></li>
+<li><p><a class="reference external" href="guide-de-demarrage-rapide.html">l’environnement virtuel</a> , le requirements.txt et .env installés</p></li>
+</ul>
+</div>
+<p>.</p>
+<section id="dockerfile-et-docker-compose">
+<h2>Dockerfile et docker-compose<a class="headerlink" href="#dockerfile-et-docker-compose" title="Link to this heading">¶</a></h2>
+<p>Nous avons un fichier Dockerfile avec les instructions pour la création une image docker.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ENV</span> <span class="n">PYTHONDONTWRITEBYTECODE</span> <span class="mi">1</span>
+<span class="n">ENV</span> <span class="n">PYTHONUNBUFFERED</span> <span class="mi">1</span>
+<span class="c1">#create work directory</span>
+<span class="n">RUN</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">code</span>
+<span class="n">WORKDIR</span> <span class="o">/</span><span class="n">code</span>
+<span class="c1">#copy requirement to be install</span>
+<span class="n">COPY</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> <span class="o">/</span><span class="n">code</span><span class="o">/</span>
+<span class="n">RUN</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="c1">#copy project</span>
+<span class="n">COPY</span> <span class="o">.</span> <span class="o">/</span><span class="n">code</span><span class="o">/</span>
+<span class="c1"># Collect static files</span>
+<span class="n">ARG</span> <span class="n">SECRET_KEY</span>
+<span class="n">ARG</span> <span class="n">SENTRY_DSN</span>
+<span class="n">ARG</span> <span class="n">DEBUG</span>
+<span class="c1"># ENV DEBUG ${DEBUG}</span>
+<span class="n">EXPOSE</span> <span class="mi">80</span>
+<span class="n">RUN</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">collectstatic</span> <span class="o">--</span><span class="n">noinput</span>
+<span class="n">CMD</span> <span class="n">gunicorn</span> <span class="n">oc_lettings_site</span><span class="o">.</span><span class="n">wsgi</span> <span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">level</span> <span class="n">debug</span> <span class="o">-</span><span class="n">b</span> <span class="mf">0.0.0.0</span><span class="p">:</span><span class="mi">80</span>
+</pre></div>
+</div>
+<p>docker-compose.yml permets de lancer l’image plus facile, et si vous avez plusieur conteneurs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span>
+
+<span class="n">services</span><span class="p">:</span>
+<span class="n">web</span><span class="p">:</span>
+    <span class="n">image</span><span class="p">:</span> <span class="n">maiphuongthao</span><span class="o">/</span><span class="n">oc</span><span class="o">-</span><span class="n">lettings</span><span class="p">:</span><span class="n">latest</span>
+    <span class="n">ports</span><span class="p">:</span>
+    <span class="o">-</span> <span class="s2">&quot;80:80&quot;</span>
+</pre></div>
+</div>
+<p>.</p>
+</section>
+<section id="aws-ec2">
+<h2>AWS ec2<a class="headerlink" href="#aws-ec2" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Créer un compte de AWS puis créer une <a class="reference external" href="https://www.techtarget.com/searchcloudcomputing/tutorial/How-to-create-an-EC2-instance-from-AWS-Console">instance AWS EC2</a>.</p></li>
+</ul>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.learnitguide.net/2023/04/how-to-install-docker-on-ubuntu.html">Installer Docker</a> et docker-compose à l’instance.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Récupèrer <a class="reference external" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY</a>.</p></li>
+</ul>
+<p>.</p>
+</section>
+<section id="circle-ci-cmd">
+<h2>Circle CI/CMD<a class="headerlink" href="#circle-ci-cmd" title="Link to this heading">¶</a></h2>
+<p>Si vous n’avez pas encore un compte de CircleCI, vous pouvez vous s’inscrire <a class="reference external" href="https://circleci.com/vcs-authorize/">ici</a>.</p>
+<p>Créer un nouveau <a class="reference external" href="https://circleci.com/docs/getting-started/">projet</a> ou <a class="reference external" href="https://circleci.com/blog/setting-up-continuous-integration-with-github/">connecter</a> le projet forké de votre GitHub à Circle CI.
+Remplacer le répertoire .circleci avec celui du projet.</p>
+<p><a class="reference external" href="https://circleci.com/docs/set-environment-variable/">Ajouter environnement variables</a> dans votre projet de circleCI:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DOCKER_LOGIN</p></td>
+<td><p>Docker Hub Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>DOCKER_PASSWORD</p></td>
+<td><p>Docker Hub password</p></td>
+</tr>
+<tr class="row-even"><td><p>DEBUG</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>SECRET_KEY</p></td>
+<td><p>Django secret key</p></td>
+</tr>
+<tr class="row-even"><td><p>SENTRY_DSN</p></td>
+<td><p>Sentry DSN</p></td>
+</tr>
+<tr class="row-odd"><td><p>AWS_ACCESS_KEY_ID</p></td>
+<td><p>AWS access key id</p></td>
+</tr>
+<tr class="row-even"><td><p>AWS_SECRET_ACCESS_KEY</p></td>
+<td><p>AWS secret key of access key</p></td>
+</tr>
+<tr class="row-odd"><td><p>AWS_DEFAULT_REGION</p></td>
+<td><p>aws default region</p></td>
+</tr>
+<tr class="row-even"><td><p>SG_ID row 9</p></td>
+<td><p>sg of aws ec2 instance security group</p></td>
+</tr>
+<tr class="row-odd"><td><p>SSH_HOST row</p></td>
+<td><p>aws ec2 instance IP public or DNS public</p></td>
+</tr>
+<tr class="row-even"><td><p>SSH_USER row</p></td>
+<td><p>aws ec2 instance user</p></td>
+</tr>
+</tbody>
+</table>
+<p>Une pipeline Circle CI/CD qui est crée. Créer une branch en parallèle avec votre branch master, avec cette configuration, vous pouvez:</p>
+<p><strong>Compliation</strong>: <em>Lancer les tests après chaque commit</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>jobs:
+    testing:
+        docker:
+        - image: cimg/python:3.8
+            environment:
+            SECRET_KEY: $SECRET_KEY
+            SENTRY_DSN: $SENTRY_DSN
+            DEBUG: $DEBUG
+        steps:
+        - checkout
+        - run:
+            name: install dependencies
+            command: |
+                python3 -m venv env
+                source env/bin/activate
+                pip install -r requirements.txt
+        - run:
+            name: launch test
+            command: |
+                source env/bin/activate
+                flake8
+                pytest --cov
+                echo &quot;TESTING COMMIT $CIRCLE_SHA1&quot;
+</pre></div>
+</div>
+<p><strong>Contrainerisation</strong>: <em>Créer image docker and pousser sur Docker Hub</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>publish_docker:
+    docker:
+    - image: cimg/python:3.9
+        environment:
+        SECRET_KEY: $SECRET_KEY
+        SENTRY_DSN: $SENTRY_DSN
+        DEBUG: $DEBUG
+    steps:
+    - checkout
+    - setup_remote_docker:
+        version: 20.10.12
+    - run:
+        name: Build and publish Docker image
+        command: |
+            docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+            docker build -t $DOCKER_LOGIN/oc-lettings:latest -t $DOCKER_LOGIN/oc-lettings:$CIRCLE_SHA1 \
+            --build-arg SECRET_KEY=$SECRET_KEY \
+            --build-arg SENTRY_DSN=$SENTRY_DSN \
+            --build-arg DEBUG=$DEBUG \
+            .
+            docker push --all-tags $DOCKER_LOGIN/oc-lettings
+</pre></div>
+</div>
+<p><strong>Deployment</strong>: <a href="#id1"><span class="problematic" id="id2">*</span></a>Installer AWS Cli, ajouter circleci dans security group, add docker-compose file et lance Docker image sur instance »</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>deploy_to_aws:
+    docker:
+    - image: cimg/python:3.8
+    steps:
+    - checkout
+    - run:
+        name: install dependencies
+        command: |
+            python3 -m venv env
+            source env/bin/activate
+    - run:
+        name: Test deploy
+        command: |
+            # echo &quot;$SSH_KEY&quot; &gt;&gt; /tmp/deploy_key
+            # chmod 600 /tmp/deploy_key
+
+            # 1- Install AWS CLI
+            source env/bin/activate
+            curl &quot;https://s3.amazonaws.com/aws-cli/awscli-bundle.zip&quot; -o &quot;awscli-bundle.zip&quot;
+            unzip awscli-bundle.zip
+            ./awscli-bundle/install -b ~/bin/aws
+            echo &quot;2- Get the public IP of the current CircleCI runner&quot;
+            PUBLIC_IP=$(curl ipinfo.io/ip)
+            echo &quot; 5- Add an ingress rule to the security group&quot;
+            echo &quot;region: $AWS_DEFAULT_REGION&quot;
+            ~/bin/aws ec2 authorize-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
+            --protocol tcp --port 22 --cidr $PUBLIC_IP/24
+            echo &quot;6- Give the ingress rule some time to propagate&quot;
+            sleep 5
+            # ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST &quot;mkdir -p ./code&quot;
+            scp -o StrictHostKeyChecking=no ./docker-compose.yml $SSH_USER@$SSH_HOST:/home/ubuntu
+            echo &quot;connecting to instance&quot;
+            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST &quot;docker login -u $DOCKER_LOGIN -p &#39;${DOCKER_PASSWORD}&#39; &amp;&amp; docker-compose pull &amp;&amp; docker-compose -f /home/ubuntu/docker-compose.yml up -d&quot;
+            echo &quot;docker stuff&quot;
+            # 8- Remove the ingress rule
+            ~/bin/aws ec2 revoke-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
+            --protocol tcp --port 22 --cidr $PUBLIC_IP/24
+</pre></div>
+</div>
+</section>
 </section>
 
 

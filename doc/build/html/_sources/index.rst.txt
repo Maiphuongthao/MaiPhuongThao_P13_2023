@@ -8,11 +8,9 @@ Documentation du Project - Orange County Lettings
 ==================================================
 
 
-.. raw:: html
-
-   <a href="_static/oc-lettings.png" target="_blank">
-       <img src="_static/lettings.png" alt="Orange County Lettings Screenshot" style="max-width: 100%;">
-   </a>
+.. image:: _static/lettings.png
+    :alt: logo
+    :width: 100%
 
 
 Sommaire

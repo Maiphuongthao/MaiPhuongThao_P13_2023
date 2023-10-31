@@ -5,9 +5,13 @@ Description du Projet
 Orange County Lettings est un start-up dans le secteur de la location de bien immobiliers. La start-up est en pleine phase d'expansion aux Etats-Unis.
 
 .. image:: _static/lettings.png
+    :alt: logo
+    :width: 100%
 
 
 Nous entreprenons la démache d'amélioration de notre siteweb actuel. Les objectifs principals sont de:
+
+.
 
 Amélioration de l'architecture modulaire
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -18,6 +22,7 @@ Nous optimisons notre architecture de site web en résuisant les problèmes de n
 
 Cette optimisation améliorera la flexibilité, la maintenabilité et l'évolutivité de notre code.
 
+.
 
 Réduction de divers problèmes sur le projet
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -29,6 +34,7 @@ Plusieurs problèmes à résoudre dans l'application:
  * Correcter les docstrings
  * Mettre en places les tests et maintenir la couverture des test à plus de 80%
 
+.
 
 Surveillance de l'application et suivi des erreur via Sentry
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

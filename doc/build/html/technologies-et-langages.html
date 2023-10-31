@@ -76,7 +76,7 @@
         
           <li class="toctree-l1 ">
             
-              <a href="description-du-projet.html" class="reference internal ">Description du Project</a>
+              <a href="description-du-projet.html" class="reference internal ">Description du Projet</a>
             
 
             
@@ -109,7 +109,19 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#technologies-et-les-langages-de-programmation" class="reference internal">Technologies et les langages de programmation</a></li>
+                  <li class="toctree-l2"><a href="#id1" class="reference internal">Python</a></li>
+                
+                  <li class="toctree-l2"><a href="#id2" class="reference internal">Django</a></li>
+                
+                  <li class="toctree-l2"><a href="#id3" class="reference internal">Docker</a></li>
+                
+                  <li class="toctree-l2"><a href="#id4" class="reference internal">Sentry</a></li>
+                
+                  <li class="toctree-l2"><a href="#id5" class="reference internal">GitHub</a></li>
+                
+                  <li class="toctree-l2"><a href="#id6" class="reference internal">AWS EC2</a></li>
+                
+                  <li class="toctree-l2"><a href="#circleci" class="reference internal">CircleCI</a></li>
                 
               </ul>
             
@@ -185,6 +197,52 @@
             
   <section id="technologies-et-les-langages-de-programmation">
 <h1>Technologies et les langages de programmation<a class="headerlink" href="#technologies-et-les-langages-de-programmation" title="Link to this heading">¶</a></h1>
+<p>.</p>
+<p>Plusieurs technologies et langages sont utilisés pour ce projet.
+Assurez-vous de comprendre et de les installer correctement pour une expérience de développement sans heurts.</p>
+<section id="id1">
+<h2><a class="reference external" href="https://www.python.org/">Python</a><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>C’est le langage de programmation utilisé dans ce projet suite à son polyvalent et puissant.
+Il ets donc necessaire d’installer cette langage dans votre ordinateur pour l’utilisation.</p>
+</section>
+<section id="id2">
+<h2><a class="reference external" href="https://www.djangoproject.com/">Django</a><a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<p>C’est un fraimework web utilisé dans ce projet.
+Il est noté dans le fichier requirements.txt du projet et à installer dans l’environnement virtuel.</p>
+<p>Django SECRET_KEY pour ce projet est configuré default quand besoin,
+vous pouvez ajouter votre Django Secret_key dans fichier <a class="reference external" href="guide-de-demarrage-rapide.html">.env</a></p>
+</section>
+<section id="id3">
+<h2><a class="reference external" href="https://www.docker.com/">Docker</a><a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<p>C’est une plateforme permettant de lancer ce projet dans un conteneur isolé, qui pourra être ecécute sur n’importe quel serveur.
+Dans ce projet, les commandes sont faites dans fichiers <a class="reference external" href="procedures-de-deploiement-et-de-gestion.html">Dockerfile</a> et docker-compose.yml</p>
+</section>
+<section id="id4">
+<h2><a class="reference external" href="https://sentry.io/welcome/">Sentry</a><a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<p>C’est une plateforme de surveillance des eurreurs et performance.</p>
+<p>Le DSN de ce projet doivent être ajouter dans le fichier <cite>.env`</cite></p>
+</section>
+<section id="id5">
+<h2><a class="reference external" href="https://github.com/">GitHub</a><a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<p>C’est une platforme pour stocker et manager votre code.
+Il est utilisé pour la control version et collaboration.</p>
+<p>Nous utilisant trunk base management pour une bon structure d’organation des control version.</p>
+<p>Les demarche du git pour ce projet se trouver dans <a class="reference external" href="installation.html">installation</a></p>
+</section>
+<section id="id6">
+<h2><a class="reference external" href="https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/concepts.html">AWS EC2</a><a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<p>C’est une platforme de Cloud computing, EC2(Elastic Compute Cloud) est une service qui permet de déployer ce projet avec l’aide d’une instance (serveur virtuel hébergé dans EC2)</p>
+</section>
+<section id="circleci">
+<h2><cite>CircleCI</cite><a class="headerlink" href="#circleci" title="Link to this heading">¶</a></h2>
+<p>Avec Circle CI/CD pipeline est fundamental component de ce projet pour un automatic developement et deployement.</p>
+<p>Il aid a automatic test before merge, build et deploie une fois le projet est merger sur main.</p>
+<p>Les environnement variables <a class="reference external" href="procedures-de-deploiement-et-de-gestion.html">here</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Veuillez consulter plus d’informations de chaque logiciels, langages et technologies dans leur pages initiales.</p>
+</div>
+</section>
 </section>
 
 

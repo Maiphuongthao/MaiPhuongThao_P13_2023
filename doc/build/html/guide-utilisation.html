@@ -76,7 +76,7 @@
         
           <li class="toctree-l1 ">
             
-              <a href="description-du-projet.html" class="reference internal ">Description du Project</a>
+              <a href="description-du-projet.html" class="reference internal ">Description du Projet</a>
             
 
             
@@ -136,7 +136,11 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#guide-d-utilisation" class="reference internal">Guide d’utilisation</a></li>
+                  <li class="toctree-l2"><a href="#sur-web" class="reference internal">Sur web</a></li>
+                
+                  <li class="toctree-l2"><a href="#sentry" class="reference internal">Sentry</a></li>
+                
+                  <li class="toctree-l2"><a href="#circleci" class="reference internal">CircleCI</a></li>
                 
               </ul>
             
@@ -185,6 +189,37 @@
             
   <section id="guide-d-utilisation">
 <h1>Guide d’utilisation<a class="headerlink" href="#guide-d-utilisation" title="Link to this heading">¶</a></h1>
+<p>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les installations sont nécessaires:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="technologies-et-langages.html">les langages et technologies</a> du projet.</p></li>
+<li><p><a class="reference external" href="installation.html">projet clôné</a> dans votre ordinateur</p></li>
+<li><p><a class="reference external" href="guide-de-demarrage-rapide.html">l’environnement virtuel</a> , le requirements.txt et .env installés</p></li>
+</ul>
+</div>
+<section id="sur-web">
+<h2>Sur web<a class="headerlink" href="#sur-web" title="Link to this heading">¶</a></h2>
+<p>Lorsque <a class="reference external" href="guide-de-demarrage-rapide.html">le serveur</a> est lancé, vous allez voir la page d’accueil avec 2 choix affichés</p>
+<a class="reference internal image-reference" href="_images/homepage.png"><img alt="homepage" src="_images/homepage.png" style="width: 100%;" /></a>
+<p>Lorque vous choissisez le boutons Profiles, le serveur va lancer une requête de Profile dans la base de données pour tous récupérer et renvoyer la liste montrant en font-end.</p>
+<a class="reference internal image-reference" href="_images/profilepage.png"><img alt="profilepage" src="_images/profilepage.png" style="width: 100%;" /></a>
+<p>Lorsque vous être dans la page de profile et que vous cliquez sur un profile au hazard, le serveur va lancer une requête de Profile avec Profile Id dans la base de donnée, ensuite retourner le résultat vers api enpoint de profile name.</p>
+<a class="reference internal image-reference" href="_images/profilenamepage.png"><img alt="profile indiv" src="_images/profilenamepage.png" style="width: 100%;" /></a>
+</section>
+<section id="sentry">
+<h2>Sentry<a class="headerlink" href="#sentry" title="Link to this heading">¶</a></h2>
+<p>Lorsque le serveur est lancé et DSN de Sentry est correctement ajouter dans le fichier <a class="reference external" href="guide-de-demarrage-rapide.html">.env</a>, vous pouvez allers l’interface Sentry pour surveiller les transactions, performance et erreurs.</p>
+<a class="reference internal image-reference" href="_images/sentry.png"><img alt="Sentry" src="_images/sentry.png" style="width: 100%;" /></a>
+</section>
+<section id="circleci">
+<h2>CircleCI<a class="headerlink" href="#circleci" title="Link to this heading">¶</a></h2>
+<p>Lorsque vous créer et lancé une commit sur votre branch de developement, les test vont êtes lancé automatiquement avec CircleCI.</p>
+<a class="reference internal image-reference" href="_images/circle1.png"><img alt="circleci test" src="_images/circle1.png" style="width: 100%;" /></a>
+<p>Lorsque vous mergez la branch developement à la branch master (main), CircleCI va lancer automatiquement la créations de image, pousser sur DockerHub et deployer le projet dans AWS EC2 instance.</p>
+<a class="reference internal image-reference" href="_images/circle2.png"><img alt="circle completely" src="_images/circle2.png" style="width: 100%;" /></a>
+</section>
 </section>
 
 
