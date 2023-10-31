@@ -35,7 +35,7 @@
 1. **[General informations](#general-informations)**
 2. **[Prerequisite list](#list-of-prerequisites)**
 3. **[Installation](#installation)**
-4. **[Development the site locally](#launch-locally)**       
+4. **[Develop the site locally](#launch-locally)**       
 2. **[Admin](#admin)**   
 3. **[Production](#production)**   
 
@@ -141,7 +141,7 @@ MacOS et Linux :
 
 <div id="launch-locally"></div>
 
-## Development the site locally
+## Develop the site locally
 
 - `cd MaiPhuongThao_P13_2023`
 - `source venv/bin/activate`
@@ -228,6 +228,6 @@ This project is using Trunk-base development as a version control management pra
 
 - Testing:  After each commit on addition branch ( developement or else), the tests will be executed automatically
 - Build image: When the tests are passed and the branch is merged to master, docker contener and image will be created then sent to Docker Hub
-- Deploy: aws will be installed with circleci, then it will add circleci ingress to security group, then connect to aws ec2 instance, from there the docker which is installed in the instance will copy docker-compose file then search for latest image to deploy
+- Deploy: aws cli will be installed with circleci, then it will add circleci ingress to security group to connect to aws ec2 instance, from there the docker which is installed in the instance will copy docker-compose file then search for latest image to deploy
 
 Here we have the website fully deployed to an ip public.

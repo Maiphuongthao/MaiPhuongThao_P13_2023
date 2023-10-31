@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>Description de la structure de la base de données et des modèles</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="_static/documentation_options.js?v=5cd26065"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=d99ca74e"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Recherche" href="search.html" />
+  <link rel="next" title="Description des interfaces de programmation" href="interfaces-de-programmation.html" />
+  <link rel="prev" title="Technologies et les langages de programmation" href="technologies-et-langages.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">OC-Lettings</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#sommaire">sommaire</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="description-du-projet.html" class="reference internal ">Description du Projet</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="installation.html" class="reference internal ">Instructions sur l’installation du Project</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="guide-de-demarrage-rapide.html" class="reference internal ">Guide de démarrage rapide</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="technologies-et-langages.html" class="reference internal ">Technologies et les langages de programmation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Description de la structure de la base de données et des modèles</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#structure-de-la-base-de-donnees" class="reference internal">Structure de la base de données</a></li>
+                
+                  <li class="toctree-l2"><a href="#modeles-de-donnees" class="reference internal">Modèles de données</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="interfaces-de-programmation.html" class="reference internal ">Description des interfaces de programmation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="guide-utilisation.html" class="reference internal ">Guide d’utilisation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="procedures-de-deploiement-et-de-gestion.html" class="reference internal ">Procédures de déploiement et de gestion</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Description de la structure de la base de données et des modèles</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="technologies-et-langages.html"
+       title="Chapitre précédent">← Technologies et les langages de programmation</a>
+  </li>
+  <li class="next">
+    <a href="interfaces-de-programmation.html"
+       title="Chapitre suivant">Description des interfaces de programmation →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="description-de-la-structure-de-la-base-de-donnees-et-des-modeles">
+<h1>Description de la structure de la base de données et des modèles<a class="headerlink" href="#description-de-la-structure-de-la-base-de-donnees-et-des-modeles" title="Link to this heading">¶</a></h1>
+<p>.</p>
+<section id="structure-de-la-base-de-donnees">
+<h2>Structure de la base de données<a class="headerlink" href="#structure-de-la-base-de-donnees" title="Link to this heading">¶</a></h2>
+<p>Dans la carde ce projet Django, nous utilions la base de données relationnelles SQLite3.</p>
+<p>La base de données SQLite3 est intégré directement dans Django ceque signifie que vous n’avez pas besoin d’installer un système de données externe.
+Voici les 2 options pour accéder aux données du projets.</p>
+<ol class="arabic simple">
+<li><p><strong>L’interface d’administration de Django</strong>:</p></li>
+</ol>
+<p>Il lit automatiquement les metadatas des modèles et montre les données liées au x modèles.
+Il est conseillé d’utiliser cette interface pour organisation du management interne.
+Pour accéder au interface, vous devez <a class="reference external" href="guide-de-demarrage-rapide.html">démarrer le serveur de développement Django</a> et rendez vous sur <a class="reference external" href="http://127.0.0.1:8000/admin/">la page d’administration</a> dans votre navigateur web.</p>
+<ol class="arabic simple">
+<li><p><strong>SQLite3 shell</strong>:</p></li>
+</ol>
+<p>Dans votre terminal du projet, ouvrez SQLite3 shell avec la ligne de commande:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sqlite3</span>
+</pre></div>
+</div>
+<p><em>Connecter à database du projet</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">open</span> <span class="n">oc</span><span class="o">-</span><span class="n">lettings</span><span class="o">-</span><span class="n">site</span><span class="o">.</span><span class="n">sqlite3</span>
+</pre></div>
+</div>
+<p><em>Consulter les tables de database</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">tables</span>
+</pre></div>
+</div>
+<p><em>Consulter table colonnes</em>:</p>
+<blockquote>
+<div><p>example table : profiles_profile</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pragma</span> <span class="n">table_info</span><span class="p">(</span><span class="n">table</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>Consulter les informations d’une table</em>:</p>
+<blockquote>
+<div><p>example table : profiles_profile</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">favarite_city</span> <span class="kn">from</span> <span class="nn">table</span> <span class="n">where</span> <span class="n">favarite_city</span> <span class="n">like</span> <span class="s1">&#39;B%&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><em>Quittez SQLite3 shell</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">quit</span>
+</pre></div>
+</div>
+<p>.</p>
+</section>
+<section id="modeles-de-donnees">
+<h2>Modèles de données<a class="headerlink" href="#modeles-de-donnees" title="Link to this heading">¶</a></h2>
+<p>Les modèles de données est très importantes pour la structure de la base de données. Chaque modèle est associé à une table de base de données, les champs essentiels correspondent auw colonnes de la tabmes. Ils sont pour définier les données ainsi comment les données sont stockées et manipulées.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+
+
+<span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">user=1 to many relation django auth user FK</span>
+<span class="sd">favorite_city =str</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+<span class="n">favorite_city</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span>
+</pre></div>
+</div>
+<p>En haut c’est une example de modèle de donnée <strong>Profile</strong> du projet. Les champs définissent sont <strong>user</strong> et <strong>favorite_city</strong>.</p>
+<p>Dans cette modèle, le champs user a une relation avec la modèle User, il est déclaré par une clés étrangère.</p>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="technologies-et-langages.html"
+       title="Chapitre précédent">← Technologies et les langages de programmation</a>
+  </li>
+  <li class="next">
+    <a href="interfaces-de-programmation.html"
+       title="Chapitre suivant">Description des interfaces de programmation →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, Mai Phuong Thao.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

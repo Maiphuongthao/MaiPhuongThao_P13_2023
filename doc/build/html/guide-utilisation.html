@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>Guide d’utilisation</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="_static/documentation_options.js?v=5cd26065"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=d99ca74e"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Recherche" href="search.html" />
+  <link rel="next" title="Procédures de déploiement et de gestion" href="procedures-de-deploiement-et-de-gestion.html" />
+  <link rel="prev" title="Description des interfaces de programmation" href="interfaces-de-programmation.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">OC-Lettings</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#sommaire">sommaire</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="description-du-projet.html" class="reference internal ">Description du Projet</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="installation.html" class="reference internal ">Instructions sur l’installation du Project</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="guide-de-demarrage-rapide.html" class="reference internal ">Guide de démarrage rapide</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="technologies-et-langages.html" class="reference internal ">Technologies et les langages de programmation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="structure-base-de-donnee.html" class="reference internal ">Description de la structure de la base de données et des modèles</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="interfaces-de-programmation.html" class="reference internal ">Description des interfaces de programmation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Guide d’utilisation</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#sur-web" class="reference internal">Sur web</a></li>
+                
+                  <li class="toctree-l2"><a href="#sentry" class="reference internal">Sentry</a></li>
+                
+                  <li class="toctree-l2"><a href="#circleci" class="reference internal">CircleCI</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="procedures-de-deploiement-et-de-gestion.html" class="reference internal ">Procédures de déploiement et de gestion</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Guide d’utilisation</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="interfaces-de-programmation.html"
+       title="Chapitre précédent">← Description des interfaces de programmation</a>
+  </li>
+  <li class="next">
+    <a href="procedures-de-deploiement-et-de-gestion.html"
+       title="Chapitre suivant">Procédures de déploiement et de gestion →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="guide-d-utilisation">
+<h1>Guide d’utilisation<a class="headerlink" href="#guide-d-utilisation" title="Link to this heading">¶</a></h1>
+<p>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les installations sont nécessaires:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="technologies-et-langages.html">les langages et technologies</a> du projet.</p></li>
+<li><p><a class="reference external" href="installation.html">projet clôné</a> dans votre ordinateur</p></li>
+<li><p><a class="reference external" href="guide-de-demarrage-rapide.html">l’environnement virtuel</a> , le requirements.txt et .env installés</p></li>
+</ul>
+</div>
+<section id="sur-web">
+<h2>Sur web<a class="headerlink" href="#sur-web" title="Link to this heading">¶</a></h2>
+<p>Lorsque <a class="reference external" href="guide-de-demarrage-rapide.html">le serveur</a> est lancé, vous allez voir la page d’accueil avec 2 choix affichés</p>
+<a class="reference internal image-reference" href="_images/homepage.png"><img alt="homepage" src="_images/homepage.png" style="width: 100%;" /></a>
+<p>Lorque vous choissisez le boutons Profiles, le serveur va lancer une requête de Profile dans la base de données pour tous récupérer et renvoyer la liste montrant en font-end.</p>
+<a class="reference internal image-reference" href="_images/profilepage.png"><img alt="profilepage" src="_images/profilepage.png" style="width: 100%;" /></a>
+<p>Lorsque vous être dans la page de profile et que vous cliquez sur un profile au hazard, le serveur va lancer une requête de Profile avec Profile Id dans la base de donnée, ensuite retourner le résultat vers api enpoint de profile name.</p>
+<a class="reference internal image-reference" href="_images/profilenamepage.png"><img alt="profile indiv" src="_images/profilenamepage.png" style="width: 100%;" /></a>
+</section>
+<section id="sentry">
+<h2>Sentry<a class="headerlink" href="#sentry" title="Link to this heading">¶</a></h2>
+<p>Lorsque le serveur est lancé et DSN de Sentry est correctement ajouter dans le fichier <a class="reference external" href="guide-de-demarrage-rapide.html">.env</a>, vous pouvez allers l’interface Sentry pour surveiller les transactions, performance et erreurs.</p>
+<a class="reference internal image-reference" href="_images/sentry.png"><img alt="Sentry" src="_images/sentry.png" style="width: 100%;" /></a>
+</section>
+<section id="circleci">
+<h2>CircleCI<a class="headerlink" href="#circleci" title="Link to this heading">¶</a></h2>
+<p>Lorsque vous créer et lancé une commit sur votre branch de developement, les test vont êtes lancé automatiquement avec CircleCI.</p>
+<a class="reference internal image-reference" href="_images/circle1.png"><img alt="circleci test" src="_images/circle1.png" style="width: 100%;" /></a>
+<p>Lorsque vous mergez la branch developement à la branch master (main), CircleCI va lancer automatiquement la créations de image, pousser sur DockerHub et deployer le projet dans AWS EC2 instance.</p>
+<a class="reference internal image-reference" href="_images/circle2.png"><img alt="circle completely" src="_images/circle2.png" style="width: 100%;" /></a>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="interfaces-de-programmation.html"
+       title="Chapitre précédent">← Description des interfaces de programmation</a>
+  </li>
+  <li class="next">
+    <a href="procedures-de-deploiement-et-de-gestion.html"
+       title="Chapitre suivant">Procédures de déploiement et de gestion →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, Mai Phuong Thao.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

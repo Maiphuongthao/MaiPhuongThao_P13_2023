@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>Technologies et les langages de programmation</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="_static/documentation_options.js?v=5cd26065"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=d99ca74e"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Recherche" href="search.html" />
+  <link rel="next" title="Description de la structure de la base de données et des modèles" href="structure-base-de-donnee.html" />
+  <link rel="prev" title="Guide de démarrage rapide" href="guide-de-demarrage-rapide.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">OC-Lettings</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#sommaire">sommaire</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="description-du-projet.html" class="reference internal ">Description du Projet</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="installation.html" class="reference internal ">Instructions sur l’installation du Project</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="guide-de-demarrage-rapide.html" class="reference internal ">Guide de démarrage rapide</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Technologies et les langages de programmation</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#id1" class="reference internal">Python</a></li>
+                
+                  <li class="toctree-l2"><a href="#id2" class="reference internal">Django</a></li>
+                
+                  <li class="toctree-l2"><a href="#id3" class="reference internal">Docker</a></li>
+                
+                  <li class="toctree-l2"><a href="#id4" class="reference internal">Sentry</a></li>
+                
+                  <li class="toctree-l2"><a href="#id5" class="reference internal">GitHub</a></li>
+                
+                  <li class="toctree-l2"><a href="#id6" class="reference internal">AWS EC2</a></li>
+                
+                  <li class="toctree-l2"><a href="#circleci" class="reference internal">CircleCI</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="structure-base-de-donnee.html" class="reference internal ">Description de la structure de la base de données et des modèles</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="interfaces-de-programmation.html" class="reference internal ">Description des interfaces de programmation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="guide-utilisation.html" class="reference internal ">Guide d’utilisation</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="procedures-de-deploiement-et-de-gestion.html" class="reference internal ">Procédures de déploiement et de gestion</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Technologies et les langages de programmation</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="guide-de-demarrage-rapide.html"
+       title="Chapitre précédent">← Guide de démarrage rapide</a>
+  </li>
+  <li class="next">
+    <a href="structure-base-de-donnee.html"
+       title="Chapitre suivant">Description de la structure de la base de données et des modèles →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="technologies-et-les-langages-de-programmation">
+<h1>Technologies et les langages de programmation<a class="headerlink" href="#technologies-et-les-langages-de-programmation" title="Link to this heading">¶</a></h1>
+<p>.</p>
+<p>Plusieurs technologies et langages sont utilisés pour ce projet.
+Assurez-vous de comprendre et de les installer correctement pour une expérience de développement sans heurts.</p>
+<section id="id1">
+<h2><a class="reference external" href="https://www.python.org/">Python</a><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>C’est le langage de programmation utilisé dans ce projet suite à son polyvalent et puissant.
+Il ets donc necessaire d’installer cette langage dans votre ordinateur pour l’utilisation.</p>
+</section>
+<section id="id2">
+<h2><a class="reference external" href="https://www.djangoproject.com/">Django</a><a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<p>C’est un fraimework web utilisé dans ce projet.
+Il est noté dans le fichier requirements.txt du projet et à installer dans l’environnement virtuel.</p>
+<p>Django SECRET_KEY pour ce projet est configuré default quand besoin,
+vous pouvez ajouter votre Django Secret_key dans fichier <a class="reference external" href="guide-de-demarrage-rapide.html">.env</a></p>
+</section>
+<section id="id3">
+<h2><a class="reference external" href="https://www.docker.com/">Docker</a><a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<p>C’est une plateforme permettant de lancer ce projet dans un conteneur isolé, qui pourra être ecécute sur n’importe quel serveur.
+Dans ce projet, les commandes sont faites dans fichiers <a class="reference external" href="procedures-de-deploiement-et-de-gestion.html">Dockerfile</a> et docker-compose.yml</p>
+</section>
+<section id="id4">
+<h2><a class="reference external" href="https://sentry.io/welcome/">Sentry</a><a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<p>C’est une plateforme de surveillance des eurreurs et performance.</p>
+<p>Le DSN de ce projet doivent être ajouter dans le fichier <cite>.env`</cite></p>
+</section>
+<section id="id5">
+<h2><a class="reference external" href="https://github.com/">GitHub</a><a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<p>C’est une platforme pour stocker et manager votre code.
+Il est utilisé pour la control version et collaboration.</p>
+<p>Nous utilisant trunk base management pour une bon structure d’organation des control version.</p>
+<p>Les demarche du git pour ce projet se trouver dans <a class="reference external" href="installation.html">installation</a></p>
+</section>
+<section id="id6">
+<h2><a class="reference external" href="https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/concepts.html">AWS EC2</a><a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<p>C’est une platforme de Cloud computing, EC2(Elastic Compute Cloud) est une service qui permet de déployer ce projet avec l’aide d’une instance (serveur virtuel hébergé dans EC2)</p>
+</section>
+<section id="circleci">
+<h2><cite>CircleCI</cite><a class="headerlink" href="#circleci" title="Link to this heading">¶</a></h2>
+<p>Avec Circle CI/CD pipeline est fundamental component de ce projet pour un automatic developement et deployement.</p>
+<p>Il aid a automatic test before merge, build et deploie une fois le projet est merger sur main.</p>
+<p>Les environnement variables <a class="reference external" href="procedures-de-deploiement-et-de-gestion.html">here</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Veuillez consulter plus d’informations de chaque logiciels, langages et technologies dans leur pages initiales.</p>
+</div>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="guide-de-demarrage-rapide.html"
+       title="Chapitre précédent">← Guide de démarrage rapide</a>
+  </li>
+  <li class="next">
+    <a href="structure-base-de-donnee.html"
+       title="Chapitre suivant">Description de la structure de la base de données et des modèles →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2023, Mai Phuong Thao.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>
