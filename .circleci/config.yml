@@ -7,7 +7,7 @@ orbs:
 jobs:
   testing:
     docker:
-      - image: cimg/python:3.8
+      - image: cimg/python:3.9
         environment:
           SECRET_KEY: $SECRET_KEY
           SENTRY_DSN: $SENTRY_DSN
@@ -50,7 +50,7 @@ jobs:
             docker push --all-tags $DOCKER_LOGIN/oc-lettings
   deploy_to_aws:
     docker:
-      - image: cimg/python:3.8
+      - image: cimg/python:3.9
     steps:
       - checkout
       - run:
