@@ -48,6 +48,7 @@
 
 Orange County Lettings is a start-up real estate company in the US.
 The but is to improve the base code from their github [Python-OC-lettings_FR](https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR), then to the deployment.
+For more information, check out [Read The Docs](https://maiphuongthao-p13-2023.readthedocs.io/fr/latest/)
 
 Basic demands:
 
