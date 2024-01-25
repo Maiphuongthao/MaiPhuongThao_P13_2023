@@ -27,4 +27,4 @@ def profile(request, username):
         return render(request, "profiles/profile.html", context)
     except Exception as e:
         sentry_sdk.capture_exception(e)
-        return render(request, "error.html", {"error_message":str(e)}, status=500)
+        return render(request, "error.html", {"error_message":str(e)})
