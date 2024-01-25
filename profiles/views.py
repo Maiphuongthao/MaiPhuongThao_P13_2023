@@ -9,13 +9,9 @@ def index(request):
     :param request from user
     :return a list of profile
     """
-    try: 
-        profiles_list = Profile.objects.all()
-        context = {"profiles_list": profiles_list}
-        return render(request, "profiles/index.html", context)
-    except Exception as e:
-        sentry_sdk.capture_exception(e)
-        return render(request, "page_404.html", {"error_message":str(e)}, status=404)
+    profiles_list = Profile.objects.all()
+    context = {"profiles_list": profiles_list}
+    return render(request, "profiles/index.html", context)
 
 
 def profile(request, username):
