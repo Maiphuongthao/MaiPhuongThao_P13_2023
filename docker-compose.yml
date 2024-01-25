@@ -3,13 +3,13 @@ version: '3'
 services:
   web:
     image: maiphuongthao/oc-lettings:latest
-    # volumes:
-      # - .:/code
+    volumes:
+      - .:/code
       # - .db.sqlite3
       # - ./static:/staticfiles
     ports:
       - "80:80"
-    # environment:
+    environment:
       # - SECRET_KEY=${SECRET_KEY}
-      # - SENTRY_DSN=${SENTRY_DSN}
-      # - DEBUG=${DEBUG}
+      - SENTRY_DSN=${SENTRY_DSN}
+      - DEBUG=${DEBUG}

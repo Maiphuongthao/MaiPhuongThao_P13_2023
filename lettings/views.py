@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Letting
+import sentry_sdk
 
 
 def index(request):
@@ -19,9 +20,13 @@ def letting(request, letting_id):
     :params request and letting_id
     :return letting details
     """
-    letting = get_object_or_404(Letting, id=letting_id)
-    context = {
-        "title": letting.title,
-        "address": letting.address,
-    }
-    return render(request, "lettings/letting.html", context)
+    try:
+        letting = get_object_or_404(Letting, id=letting_id)
+        context = {
+            "title": letting.title,
+            "address": letting.address,
+        }
+        return render(request, "lettings/letting.html", context)
+    except Exception as e:
+        sentry_sdk.capture_exception(e)
+        return render(request, "error.html", {"error_message": str(e)}, status=500)
