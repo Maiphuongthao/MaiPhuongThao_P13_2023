@@ -21,10 +21,10 @@ def profile(request, username):
     :return a profile from username
     capture err to sentry if there is
     """
-    try: 
+    try:
         profile = get_object_or_404(Profile, user__username=username)
         context = {"profile": profile}
         return render(request, "profiles/profile.html", context)
     except Exception as e:
         sentry_sdk.capture_exception(e)
-        return render(request, "error.html", {"error_message":str(e)})
+        return render(request, "error.html", {"error_message": str(e)}, status=500)
