@@ -80,7 +80,7 @@ jobs:
             # ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p ./code"
             scp -o StrictHostKeyChecking=no ./docker-compose.yml $SSH_USER@$SSH_HOST:/home/ubuntu
             echo "connecting to instance"
-            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker login -u $DOCKER_LOGIN -p '${DOCKER_PASSWORD}' && docker system prune -f -a && docker-compose pull && docker-compose -f /home/ubuntu/docker-compose.yml up -d"
+            ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker login -u $DOCKER_LOGIN -p '${DOCKER_PASSWORD}' && docker-compose pull && docker-compose -f /home/ubuntu/docker-compose.yml up -d"
             echo "docker stuff"
             # 8- Remove the ingress rule
             ~/bin/aws ec2 revoke-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SG_ID \
