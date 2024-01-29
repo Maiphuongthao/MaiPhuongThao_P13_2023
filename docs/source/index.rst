@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 ==================================================
-Documentation du Project - Orange County Letting
+Documentation du Project - Orange County Lettings
 ==================================================
 
 
